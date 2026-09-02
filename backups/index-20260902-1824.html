@@ -196,47 +196,6 @@
   .orden{display:block;margin-top:7px;padding:7px 9px;background:#0A0F1A;border:1px solid #232B3D;border-left:3px solid var(--amber);border-radius:8px;font-family:var(--mono);font-size:11.5px;line-height:1.7;color:#D8DEE9}
   .orden .r{color:var(--red);font-weight:700}.orden .g{color:var(--green);font-weight:700}.orden .a{color:var(--amber);font-weight:700}
   @media (min-width:900px){.orden{font-size:12.5px}}
-
-  .tsrow{display:flex;gap:14px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px;flex-wrap:wrap}
-  .gauge{position:relative;width:96px;height:52px;overflow:hidden;flex:0 0 96px}
-  .gauge .dial{position:absolute;left:0;top:0;width:96px;height:96px;border-radius:50%;background:conic-gradient(from 270deg,#F2555A 0deg 72deg,#F5B843 72deg 108deg,#9BD13D 108deg 144deg,#3DD68C 144deg 180deg,transparent 180deg 360deg)}
-  .gauge .hole{position:absolute;left:16px;top:16px;width:64px;height:64px;border-radius:50%;background:var(--panel)}
-  .gauge .needle{position:absolute;bottom:-2px;left:50%;width:3px;height:44px;background:#EDF1F7;border-radius:2px;transform-origin:bottom center;box-shadow:0 0 4px #000}
-  .gauge .pin{position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:#EDF1F7}
-  .gauge .num{position:absolute;bottom:2px;width:100%;text-align:center;font-family:var(--mono);font-weight:800;font-size:15px}
-  .tsinfo{flex:1 1 130px;min-width:120px}
-  .tsinfo .tname{font-size:15px}
-  .tsinfo .cat{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--mut)}
-  .bks{flex:2 1 240px;min-width:200px;display:grid;gap:4px}
-  .bk{display:grid;grid-template-columns:86px 1fr 34px;gap:8px;align-items:center;font-family:var(--mono);font-size:9.5px;color:var(--mut)}
-  .bk .tr{height:7px;background:#0A0F1A;border-radius:4px;overflow:hidden}
-  .bk .fl{height:100%;border-radius:4px}
-  .f-g{background:var(--green)}.f-a{background:var(--amber)}.f-r{background:var(--red)}
-  .bk .pts{text-align:right;color:#D8DEE9}
-
-  .vmap{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px}
-  .vmap .vhead{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:4px}
-  .vmap .vtk{font-weight:800;font-size:15px}
-  .vmap .vmeta{font-family:var(--mono);font-size:10px;color:var(--dim)}
-  .rail{position:relative;height:56px;margin:14px 2px 4px}
-  .rail .track{position:absolute;top:20px;left:0;right:0;height:12px;background:#0A0F1A;border:1px solid #1A2132;border-radius:7px}
-  .rail .zone{position:absolute;top:20px;height:12px;border-radius:7px}
-  .z-stop{background:rgba(242,85,90,.5);border:1px solid rgba(242,85,90,.7)}
-  .z-band{background:rgba(61,214,140,.5);border:1px solid rgba(61,214,140,.7)}
-  .z-tp{background:rgba(91,141,239,.45);border:1px solid rgba(91,141,239,.7)}
-  .rail .zl{position:absolute;top:36px;transform:translateX(-50%);font-family:var(--mono);font-size:8.5px;white-space:nowrap}
-  .rail .now{position:absolute;top:2px;transform:translateX(-50%);text-align:center;z-index:3}
-  .rail .now .tri{color:#fff;font-size:13px;line-height:10px;text-shadow:0 0 6px #000}
-  .rail .now .nlb{font-family:var(--mono);font-size:8.5px;color:#fff;font-weight:700;white-space:nowrap;background:#0B0E14;padding:1px 4px;border-radius:4px;border:1px solid #333}
-  .chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 8px}
-  .chip{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;padding:5px 9px;border-radius:14px;border:1px solid}
-  .c-ok{color:#3DD68C;border-color:#1F5236;background:#0F2418}
-  .c-no{color:#F2555A;border-color:#52242A;background:#211013}
-  .c-wt{color:#F5B843;border-color:#524524;background:#241D0D}
-  .vact{font-family:var(--mono);font-size:12px;font-weight:800;padding:10px 12px;border-radius:9px;text-align:center;margin-top:6px;letter-spacing:.02em}
-  .a-buy{background:#0F2418;border:1px solid #3DD68C;color:#3DD68C}
-  .a-no{background:#211013;border:1px solid #52242A;color:#F2555A}
-  .a-wt{background:#241D0D;border:1px solid #F5B843;color:#F5B843}
 </style>
 </head>
 <body>
@@ -245,183 +204,49 @@
 <h1>Parte de Trinchera <span class="vtag">v17</span></h1>
 <div class="sub">Domingo 30 de agosto, 2026 · Edición 7 · Lunes 31-ago · Mapeo de 3 clanes completado (informe 13:30–13:55 UTC) · Congelador ACTIVO · <b style="color:#EDF1F7">Las jugadas primero; el desarrollo, después</b></div>
 <nav class="toc"><b>ÍNDICE</b><a href="#s-hoy">① Posiciones</a><a href="#s-mapas">② Mapas de compra</a><a href="#s-obs">③ Observación</a><a href="#s-arch">④ Archivo</a></nav>
-<div class="alert" style="margin-bottom:10px;border-color:#3DD68C"><span class="tag" style="background:#3DD68C;color:#0B0E14">17:05 · UN MAPA EN VERDE + BTC AL LÍMITE</span> <b>🟢 SAYLORMOON validó las 4 condiciones — ÚNICO mapa completo: ORDEN EJECUTABLE de $10</b> (en banda $3.1M, dinero comprador, ambas ballenas enteras, escalera de mínimos perfecta de 5 días). Stop cierre &lt;$2.4M · TP1 al 2x retira capital · forzosa: Sell de eric.eth O inyourwalls. <b>⚠ BTC tocó $75,503.64 — a $3.64 DEL GATILLO — y rebotó</b>; cierra hoy ~$77.1K: la regla es CIERRE diario, no mecha → no activada, pero VIGILAR EL CIERRE de esta noche (si cierra &lt;$75,500: mañana se vende todo, sonda incluida). El moon bag de MarsCoin también sobrevivió por la misma regla (mecha a $0.0503, bajo el stop $0.057 — sin cierre = sin venta; ahora $0.0614 ✓). JUGGERNAUT 3/4 (solo falta asentarse: cierres 4H &gt;$6M consecutivos). MarsCoin recompra RECHAZADA (banda perforada + dinero vendedor). PENGU la frágil del día (dinero -$212K, colchón 11.9%). PAIR: unipcs NO está entero — 4 ventas ($54.5K), su única venta del tablero. fone: DOBLE acumulación activa (ether_monk 7 compras + tesis 14:56, eric.eth $28K) → ficha prioritaria. Régimen del día: AI/MemeFi con volumen récord y distribución en máximos. Radar X: FLORK listado en Binance Alpha + guiño de econoar 1h después — el radar de conectores funcionó a la primera.</div>
+<div class="alert" style="margin-bottom:10px;border-color:#F5B843"><span class="tag" style="background:#F5B843;color:#0B0E14">22:45 · CIERRE DEL DÍA 1</span> <b>SAYLORMOON cumplió LAS DOS condiciones de ascenso en un día:</b> creció +38% en la cartera de Manu Y eric.eth le entró ($2,486 a $2.6M) — primera semilla que asciende: pedirle ficha completa en el próximo Escaneo-A. <b>eric.eth agregó a microduck DOS veces más</b> (posición $175.7K, +398%) y desplegó $28K en fone. <b>Wood NO asciende:</b> una-bolsa extrema (AI = 86% del patrimonio) y está DISTRIBUYENDO AI hace 19 horas arriba de $300M — se usa como termómetro de cuándo AI se reparte, no como fuente. Contraste clave: DCE jamás vendió un AI (88% de sus $8.6M). <b>CORRECCIÓN: DCE NO tiene ni tuvo LUCIA</b> (el dato de anoche fue error de escáner — LUCIA queda descartada del todo: ficha de terror + sin respaldo). Manu: 4 cosechas CALLADAS confirmadas + 5 semillas nuevas, incluida FRONG (a $5.9M — la que descartamos por cero ballenas ahora tiene al sembrador). microduck TP1 $0.022 vigente para 2ª aproximación · Rabbit decide hoy 16:40 · BTC amarillo. <span style="color:#F5B843;font-family:ui-monospace,Menlo,monospace;font-size:11px">⛔ BTC cierre &lt; $75,500 = venta total.</span></div>
 
 <!-- ============ JUGADAS ACTIVAS ============ -->
-<div id="s-hoy" class="stitle">💼 Cartera de José (@jlh87) — 2-sep 07:22</div><div class="twrap"><table>
+<div id="s-hoy" class="stitle">💼 Cartera de José (@jlh87) — 1-sep 22:10</div><div class="twrap"><table>
 <colgroup><col style="width:17%"><col style="width:14%"><col style="width:12%"><col style="width:57%"></colgroup>
 <tr><th>Token</th><th>Valor</th><th>PnL</th><th>Estado y orden vigente</th></tr>
-<tr><td><b>PENGU</b><br><span style="color:#5A6373;font-size:9.5px">16.3K</span></td><td>$134.34</td><td class="cool">-7.96%</td><td>Posición lenta, la única en rojo y la más grande. Ballena sin vender (23 tx verificadas) pero sin agregar desde 27-ago; ratio del día el peor del grupo.<br><span class="orden">⛔ <span class="r">VENDER TODO si toca $0.0073</span> · 🎯 <span class="g">VENDER MITAD en $0.0127</span> · 🐋 <span class="a">VENDER TODO si ether_monk vende</span> · No agregar</span></td></tr>
-<tr><td><b>MarsCoin</b><br><span style="color:#5A6373;font-size:9.5px">942.12 · moon bag</span></td><td>$63.56</td><td class="hot">+38.4% · GRATIS</td><td>Trade redondo cerrado: $306.55 realizados sobre $266.46 invertidos (TP1+TP2). El resto corre con plata de la casa; unipcs entero (101 swaps sin ventas) y tesis nueva: futuros en Bybit.<br><span class="orden">⛔ <span class="r">VENDER RESTO si cierra &lt; $0.057</span> · 🚀 sin TP — corre con la ballena · 🐋 <span class="a">VENDER TODO si unipcs vende</span> · ♻ Recompra: ver mapa 1</span></td></tr>
-<tr><td><b>microduck</b><br><span style="color:#5A6373;font-size:9.5px">1.2K</span></td><td>$9.60 (moon bag)</td><td class="hot">+87% · GRATIS</td><td>Sembrada hoy 6:19 en banda. TRADE REDONDO: $17.90 invertidos → $26.40 realizados (TP1 $16.42 a $26.8M + TP2 $9.98 a $32.6M) = 147% del capital afuera + moon bag 305.76 gratis con triple titán.<br><span class="orden">⛔ <span class="r">VENDER RESTO si cierra &lt; $0.020</span> · 🚀 sin TP — corre con las ballenas · 🐋 <span class="a">VENDER TODO si ether_monk o unipcs venden</span></span></td></tr>
+<tr><td><b>PENGU</b><br><span style="color:#5A6373;font-size:9.5px">16.3K</span></td><td>$137.73</td><td class="cool">-5.64%</td><td>Posición lenta, la única en rojo y la más grande. Ballena sin vender (23 tx verificadas) pero sin agregar desde 27-ago; ratio del día el peor del grupo.<br><span class="orden">⛔ <span class="r">VENDER TODO si toca $0.0073</span> · 🎯 <span class="g">VENDER MITAD en $0.0127</span> · 🐋 <span class="a">VENDER TODO si ether_monk vende</span> · No agregar</span></td></tr>
+<tr><td><b>MarsCoin</b><br><span style="color:#5A6373;font-size:9.5px">942.12 · moon bag</span></td><td>$67.64</td><td class="hot">+39.9% · GRATIS</td><td>Trade redondo cerrado: $306.55 realizados sobre $266.46 invertidos (TP1+TP2). El resto corre con plata de la casa; unipcs entero (101 swaps sin ventas) y tesis nueva: futuros en Bybit.<br><span class="orden">⛔ <span class="r">VENDER RESTO si cierra &lt; $0.057</span> · 🚀 sin TP — corre con la ballena · 🐋 <span class="a">VENDER TODO si unipcs vende</span> · ♻ Recompra: ver mapa 1</span></td></tr>
+<tr><td><b>microduck</b><br><span style="color:#5A6373;font-size:9.5px">1.2K</span></td><td>$24.80</td><td class="hot">+38.5%</td><td>Sembrada hoy 6:19 en banda. TRIPLE TITÁN (15:28): ether_monk agregando ($179K), unipcs adentro (+463%) y eric.eth comprando hace 1h — el mejor respaldo de ballenas del tablero en tu token más chico.<br><span class="orden">⛔ <span class="r">VENDER TODO si toca $0.0118</span> · 🎯 <span class="g">VENDER MITAD en $0.022</span> (alerta: $0.0213) · 🐋 <span class="a">VENDER TODO si ether_monk vende</span></span></td></tr>
 <tr><td><b>牛来</b><br><span style="color:#5A6373;font-size:9.5px">CERRADA 31-ago</span></td><td>—</td><td class="hot">+77.5% ✓</td><td>Primer ciclo 100% completo: $45.14 → $80.51 por salida forzosa (unipcs vendió; ejecución en 11 min).</td></tr>
-<tr><td><b>TOTAL</b></td><td><b>$442.80</b></td><td class="hot">+45.7% s/depósitos</td><td>Cash: <b style="color:#3DD68C">~$228 (≈50%)</b> · Depósitos $300 · Realizado acumulado: 2 TPs MarsCoin + ciclo 牛来 · Rank #13,435 · PnL 24h +$64.87</td></tr>
+<tr><td><b>TOTAL</b></td><td><b>$442.80</b></td><td class="hot">+44.0% s/depósitos</td><td>Cash: <b style="color:#3DD68C">$201.58 (45.5% de la cuenta)</b> · Depósitos $300 · Realizado acumulado: 2 TPs MarsCoin + ciclo 牛来 · Rank #13,435 · PnL 24h +$64.87</td></tr>
 </table></div>
 <div id="s-mapas" class="stitle">Mapas de ejecución — SOLO candidatos de compra activos</div>
 <div class="note" style="margin-bottom:12px"><b>Regla de esta sección:</b> acá viven únicamente los tokens con orden de compra condicional escrita — gatillo, condiciones, tamaño y salidas. Si las condiciones se cumplen, <b>el mapa ES la orden</b> (no se renegocia en caliente). Lo que no está acá, no se compra. Las posiciones ya tomadas viven en la Cartera con sus stops/TPs; los descartados viven en el Marcador.</div>
 
-<div class="vmap">
-<div class="vhead"><span class="vtk">1 · MarsCoin — RECOMPRA</span><span class="badge b-watch">RELOJ 24H CORRIENDO</span></div>
-<div class="vmeta">moon bag aparte (stop $0.057 cierre) · unipcs entero, tesis Bybit</div>
-<div class="rail"><div class="track"></div><div class="zone z-stop" style="left:1%;width:10.8%"></div><div class="zone z-band" style="left:32.4%;width:14.700000000000003%"></div><div class="zone z-tp" style="left:82.4%;width:16.599999999999994%"></div><div class="zl" style="left:11.8%;color:#F2555A">STOP $0.048</div><div class="zl" style="left:39.7%;color:#3DD68C">BANDA 55–60</div><div class="zl" style="left:82.4%;color:#5B8DEF">TP1 $0.072</div><div class="now" style="left:43.5%"><div class="nlb">AHORA $0.0588</div><div class="tri">▼</div></div></div>
-<div class="chips"><span class="chip c-wt">⏳ banda: aguante 24h (arrancó hoy ~10:30)</span><span class="chip c-no">✗ dinero 1D comprador</span><span class="chip c-ok">✓ unipcs sin ventas</span></div>
-<div class="vact a-wt">⏳ SI MAÑANA ~10:30 SIGUE EN BANDA + DINERO GIRADO → COMPRAR $35</div>
-</div><div class="vmap" style="opacity:.7;border-color:#3A1B20">
-<div class="vhead"><span class="vtk">2 · Rabbit — EXAMEN REPROBADO ✗</span><span class="badge b-no">VETO FIRMADO 2-sep 15:43</span></div>
-<div class="vmeta">MC $3.5M = LA MITAD del umbral de $7M · -21.9% en el día · unipcs (la última ballena) ya -8.5% · -65% desde el pico de anoche</div>
-<div class="vact a-no">✗ SIN TRADE — el mapa filtró su SEGUNDO colapso gratis (PAIR -43%, Rabbit -65%). La capitulación de traderpow a las 5 AM fue la señal exacta. Rabbit pasa a radar pasivo; la regla 8 queda validada con dos cadáveres que no son tuyos.</div>
+<div class="card">
+  <div class="head"><div><div class="tname">1 · MarsCoin — RECOMPRA</div><div class="tmeta">ahora $0.0662 · banda NO tocada (mínimo del retroceso: $0.0613)</div></div><span class="badge b-watch">ALERTA EN $0.061</span></div>
+  <p class="story" style="font-family:var(--mono);font-size:12.5px;line-height:1.8">▸ <b>GATILLO:</b> retroceso a banda <b class="g">$0.055–0.060</b> (MC 55–60M) que AGUANTE 24h sin perforar<br>▸ <b>CONDICIONES (las 3):</b> ① banda con 24h de aguante · ② unipcs SIN Sells · ③ dinero 1D neto comprador<br>▸ <b>TAMAÑO: $35</b> en una sola compra a mercado dentro de banda<br>▸ <b>SALIDAS de lo recomprado:</b> stop cierre &lt; <b class="r">$0.048</b> · TP1 <b class="g">$0.072</b> (vender mitad) · forzosa: Sell de unipcs (todo)<br>▸ <b>Lógica:</b> la resistencia del TP1 vuelta soporte, con la tesis Bybit por delante. Si nunca retrocede, el moon bag captura el catalizador igual.</p>
 </div>
-<div class="vmap">
-<div class="vhead"><span class="vtk">3 · Basecat — REHABILITACIÓN</span><span class="badge b-no">FALTA EL GIRO DEL DINERO</span></div>
-<div class="vmeta">unipcs #1 holder entero · catalizador Coinbase ya consumido</div>
-<div class="rail"><div class="track"></div><div class="zone z-stop" style="left:1%;width:7.300000000000001%"></div><div class="zone z-band" style="left:25.0%;width:2.1000000000000014%"></div><div class="zone z-tp" style="left:83.3%;width:15.700000000000003%"></div><div class="zl" style="left:8.3%;color:#F2555A">STOP $0.022</div><div class="zl" style="left:25.0%;color:#3DD68C">PISO $26M</div><div class="zl" style="left:83.3%;color:#5B8DEF">TP1 $0.040</div><div class="now" style="left:33.8%"><div class="nlb">AHORA $0.0281</div><div class="tri">▼</div></div></div>
-<div class="chips"><span class="chip c-no">✗ dinero 1D comprador en $ (hoy empate)</span><span class="chip c-wt">⏳ mínimo respeta $26M (hoy sí, ayer no)</span><span class="chip c-ok">✓ unipcs entero</span></div>
-<div class="vact a-no">✗ NO COMPRAR — SI EL DINERO GIRA A COMPRADOR CON PISO RESPETADO → $12</div>
-</div><div class="vmap">
-<div class="vhead"><span class="vtk">4 · CLAN — SONDA DOBLE VOTO</span><span class="badge b-no">SIN RECONQUISTA</span></div>
-<div class="vmeta">unipcs $20K + eric.eth · ⚠ Unverified · clase lotería</div>
-<div class="rail"><div class="track"></div><div class="zone z-band" style="left:50.0%;width:4.200000000000003%"></div><div class="zl" style="left:50.0%;color:#3DD68C">RECONQUISTA $4.2M</div><div class="now" style="left:30.6%"><div class="nlb">AHORA $3.5M</div><div class="tri">▼</div></div></div>
-<div class="chips"><span class="chip c-no">✗ MC reconquista $4.2M (máx hoy $3.84M)</span><span class="chip c-wt">⏳ mínimos 1D ascendentes</span><span class="chip c-no">✗ dinero 1D positivo</span></div>
-<div class="vact a-no">✗ NO COMPRAR — LAS 3 EN UN MISMO ESCANEO → SONDA $10</div>
-</div><div class="vmap">
-<div class="vhead"><span class="vtk">5 · GG (Golden Goose)</span><span class="badge b-no">SIN CONSOLIDACIÓN</span></div>
-<div class="vmeta">unipcs $97K real (+25%) · Manu +31% · banda declarada SUCIA a las 9:30</div>
-<div class="rail"><div class="track"></div><div class="zone z-stop" style="left:1%;width:4.9%"></div><div class="zone z-band" style="left:22.1%;width:10.299999999999997%"></div><div class="zone z-tp" style="left:95.6%;width:3.4000000000000057%"></div><div class="zl" style="left:5.9%;color:#F2555A">STOP $4.4M</div><div class="zl" style="left:27.2%;color:#3DD68C">BANDA 5.5–6.2</div><div class="zl" style="left:95.6%;color:#5B8DEF">TP1 $10.5M</div><div class="now" style="left:30.9%"><div class="nlb">AHORA ~$6.1M</div><div class="tri">▼</div></div></div>
-<div class="chips"><span class="chip c-no">✗ banda consolidada (perforada ↑↓ en 24h)</span><span class="chip c-no">✗ dinero $ comprador (ticket vendedor +21%)</span><span class="chip c-wt">⏳ mínimo de hoy ≥ $5.1M al cierre</span><span class="chip c-ok">✓ unipcs entero</span></div>
-<div class="vact a-no">✗ NO COMPRAR — SI HOY CIERRA MÍN ≥$5.1M Y MAÑANA DINERO COMPRADOR → SEGUNDA MIRADA ($12)</div>
-</div><div class="vmap">
-<div class="vhead"><span class="vtk">6 · microduck — AMPLIACIÓN</span><span class="badge b-watch">ESPERAR RETROCESO</span></div>
-<div class="vmeta">cola de 306 gratis + triple titán · Score 86 · regla 2 manda hoy</div>
-<div class="rail"><div class="track"></div><div class="zone z-stop" style="left:1%;width:6.1%"></div><div class="zone z-band" style="left:21.4%;width:14.300000000000004%"></div><div class="zl" style="left:7.1%;color:#F2555A">STOP $20M</div><div class="zl" style="left:28.6%;color:#3DD68C">BANDA 24–28M</div><div class="now" style="left:69.3%"><div class="nlb">AHORA $37.4M</div><div class="tri">▼</div></div></div>
-<div class="chips"><span class="chip c-no">✗ retroceso a banda (está 34% arriba)</span><span class="chip c-ok">✓ 3 titanes sin ventas</span><span class="chip c-wt">⏳ banda con aguante 24h al llegar</span></div>
-<div class="vact a-wt">⏳ SOLO EN BANDA ASENTADA CON TITANES ENTEROS → COMPRAR $12 · SIN RETROCESO, LA COLA GRATIS CAPTURA TODO</div>
-</div><div class="vmap">
-<div class="vhead"><span class="vtk">7 · JUGGERNAUT — LA JOYA</span><span class="badge b-watch">ATERRIZANDO EN BANDA</span></div>
-<div class="vmeta">unipcs $84K real (+59%) · verificado · about = tuit de Vlad Tenev</div>
-<div class="rail"><div class="track"></div><div class="zone z-stop" style="left:1%;width:7.0%"></div><div class="zone z-band" style="left:24.0%;width:8.0%"></div><div class="zone z-tp" style="left:90.0%;width:9.0%"></div><div class="zl" style="left:8.0%;color:#F2555A">STOP $5.4M</div><div class="zl" style="left:28.0%;color:#3DD68C">BANDA 6.2–6.6</div><div class="zl" style="left:90.0%;color:#5B8DEF">TP1 $9.5M</div><div class="now" style="left:34.0%"><div class="nlb">AHORA $6.7M</div><div class="tri">▼</div></div></div>
-<div class="chips"><span class="chip c-wt">⏳ banda asentada (sin cierre 4H < $6M)</span><span class="chip c-no">✗ dinero 1D comprador en $</span><span class="chip c-wt">⏳ mínimos 1D ascendentes</span><span class="chip c-ok">✓ unipcs entero</span></div>
-<div class="vact a-wt">⏳ ALERTA $0.0066 → VERIFICAR LAS 4 → TODAS ✓ = COMPRAR $12 SIN PREGUNTAR</div>
-</div><div class="vmap">
-<div class="vhead"><span class="vtk">8 · SAYLORMOON — SONDA DE SEMILLERO</span><span class="badge b-watch">COMPRESIÓN — ESPERAR BANDA</span></div>
-<div class="vmeta">Score 67 · doble voto grande (eric.eth $59K / inyourwalls $65K, cero ventas) · SIN titular · SIN catalizador fechado</div>
-<div class="rail"><div class="track"></div><div class="zone z-stop" style="left:1%;width:14%"></div><div class="zone z-band" style="left:26%;width:16%"></div><div class="zl" style="left:8%;color:#F2555A">STOP &lt;$2.4M</div><div class="zl" style="left:34%;color:#3DD68C">BANDA 2.9–3.2M</div><div class="now" style="left:44%"><div class="nlb">AHORA $3.35M</div><div class="tri">▼</div></div></div>
-<div class="chips"><span class="chip c-wt">⏳ banda $2.9–3.2M asentada (sin cierre &lt; $2.89M)</span><span class="chip c-no">✗ dinero 1D comprador en $ (hoy -$10K)</span><span class="chip c-ok">✓ eric.eth + inyourwalls sin ventas</span><span class="chip c-ok">✓ mínimos ascendentes intactos</span></div>
-<div class="vact a-buy">🟢 VALIDADO 4/4 (17:05) → COMPRAR $10 · stop cierre &lt;$2.4M · TP1 al 2x retira capital · forzosa: Sell de eric.eth O inyourwalls · (si BTC cierra hoy &lt;$75,500, mañana se vende todo, esto incluido)</div>
+
+<div class="card">
+  <div class="head"><div><div class="tname">2 · Rabbit — ESTRENO REGLA 8</div><div class="tmeta">ahora MC $5.6M · 22h de vida · ⚠ Unverified · decide MAÑANA 2-sep ~16:40</div></div><span class="badge b-watch">RELOJ: 48H MAÑANA 16:40</span></div>
+  <p class="story" style="font-family:var(--mono);font-size:12.5px;line-height:1.8">▸ <b>GATILLO:</b> mañana a partir de las 16:40, si TODO esto se cumple:<br>▸ <b>CONDICIONES (las 4):</b> ① 48h de vida cumplidas · ② MC recuperó y sostiene <b class="g">&gt; $7M</b> · ③ unipcs y traderpow sin Sells netos · ④ nunca en vela diaria &gt; +40% (regla 2 manda)<br>▸ <b>TAMAÑO: Tramo A $10 exactos</b> al confirmar · Tramo B $10 SOLO en retroceso posterior a banda <b class="g">$4.5–5.5M</b> con ballenas enteras · sin retroceso, el tramo A ES la posición<br>▸ <b>SALIDAS:</b> stop <b class="r">-40%</b> desde entrada · TP1 al <b class="g">2x</b>: retirar TODO el capital · forzosa: Sell de unipcs<br>▸ <b>Ojo:</b> traderpow promedia a la baja en tilt (-47%) — la mano firme acá es solo unipcs. Si el MC sigue bajo $7M mañana, NO hay trade por más ballenas que acumulen.</p>
 </div>
-<div class="note"><b>Lo que salió de esta sección y dónde vive ahora:</b> microduck y el moon bag de MarsCoin → son POSICIONES (sus stops/TPs están en la Cartera) · PAIR → lista negra (colapsó, filtro regla 8 ✓) · USELESS → escapada consolidada a $90M+, banda $60–63M queda como reliquia del marcador · FRONG → descartado por cero ballenas · SPACEHOOD → caso cerrado en el marcador · HMM y CASHCAT → lista negra directa (promoción de bolsa propia de KALEO detectada por el Radar X). <b>Resumen ejecutivo: 8 órdenes armadas, $113 comprometibles como máximo — la reserva de $100 se respeta porque nunca disparan todas juntas; si 3+ se habilitan el mismo día, se priorizan por Token Score.</b></div>
-<div class="stitle">🏆 Token Score — tablero del día (2-sep) · de mejor a peor</div>
-<div class="note" style="margin-bottom:10px">Aguja del tacómetro: <span style="color:#F2555A">0–40 descarte</span> · <span style="color:#F5B843">40–60 radar</span> · <span style="color:#9BD13D">60–80 observación</span> · <span style="color:#3DD68C">80–100 candidato</span>. Las 4 barras muestran dónde gana y dónde falla cada token: A Estructura (25) · B Ballenas (35) · C Momentum (25) · D Narrativa (15).</div><div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(64deg)"></div><div class="pin"></div><div class="num">86</div></div>
-  <div class="tsinfo"><div class="tname">microduck</div><div class="cat">posición · RH Chain</div><div class="cat" style="color:#3DD68C;font-weight:700;margin-top:3px">CANDIDATO ✓</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-g" style="width:80%"></div></div><span class="pts">20/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-g" style="width:100%"></div></div><span class="pts">35/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-g" style="width:96%"></div></div><span class="pts">24/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-a" style="width:46%"></div></div><span class="pts">7/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Fuerte: ballenas perfectas (triple titán 35/35) + momentum. Débil: narrativa consumida (HF). El mapa 6 gobierna la ampliación.</div>
-</div><div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(27deg)"></div><div class="pin"></div><div class="num">65</div></div>
-  <div class="tsinfo"><div class="tname">JUGGERNAUT ★</div><div class="cat">semillero · RH Chain · verificado</div><div class="cat" style="color:#F5B843;font-weight:700;margin-top:3px">OBSERVACIÓN+</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-g" style="width:80%"></div></div><span class="pts">20/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-g" style="width:82%"></div></div><span class="pts">29/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-r" style="width:32%"></div></div><span class="pts">8/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-a" style="width:53%"></div></div><span class="pts">8/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Fuerte: unipcs $84K real + estructura verificada 2 meses. Débil: momentum sin confirmar. Misión: banda → puede ascender.</div>
-</div><div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(27deg)"></div><div class="pin"></div><div class="num">65</div></div>
-  <div class="tsinfo"><div class="tname">CACHE</div><div class="cat">RH Chain · 4 días</div><div class="cat" style="color:#F5B843;font-weight:700;margin-top:3px">OBSERVACIÓN+</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-a" style="width:64%"></div></div><span class="pts">16/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-g" style="width:85%"></div></div><span class="pts">30/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-a" style="width:56%"></div></div><span class="pts">14/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-r" style="width:33%"></div></div><span class="pts">5/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Fuerte: doble voto sin ventas. Débil: precio 2-4x sobre entradas, sin banda. Espera retroceso.</div>
-</div><div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(9deg)"></div><div class="pin"></div><div class="num">55</div></div>
-  <div class="tsinfo"><div class="tname">PCC</div><div class="cat">RH Chain · 1 sem · verificado</div><div class="cat" style="color:#8B94A7;font-weight:700;margin-top:3px">RADAR · tu llamada #1</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-g" style="width:92%"></div></div><span class="pts">23/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-a" style="width:62%"></div></div><span class="pts">22/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-r" style="width:20%"></div></div><span class="pts">5/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-r" style="width:33%"></div></div><span class="pts">5/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Fuerte: estructura impecable (top10 12.8%) + ether_monk redoblando. Débil: flujo vendedor -20%. Se mide sin plata (8-sep).</div>
-</div><div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(5deg)"></div><div class="pin"></div><div class="num">53</div></div>
-  <div class="tsinfo"><div class="tname">memestock</div><div class="cat">BNB · 21 días · verificado</div><div class="cat" style="color:#8B94A7;font-weight:700;margin-top:3px">RADAR</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-g" style="width:72%"></div></div><span class="pts">18/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-a" style="width:68%"></div></div><span class="pts">24/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-r" style="width:12%"></div></div><span class="pts">3/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-a" style="width:53%"></div></div><span class="pts">8/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Fuerte: unipcs $110K. Débil: flujo empatado, sin frescura. Vigilancia pasiva.</div>
-</div><div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(1deg)"></div><div class="pin"></div><div class="num">51</div></div>
-  <div class="tsinfo"><div class="tname">MarsCoin*</div><div class="cat">posición (moon bag) · BNB</div><div class="cat" style="color:#8B94A7;font-weight:700;margin-top:3px">RADAR recompra</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-g" style="width:72%"></div></div><span class="pts">18/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-a" style="width:60%"></div></div><span class="pts">21/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-r" style="width:4%"></div></div><span class="pts">0/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-g" style="width:80%"></div></div><span class="pts">12/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Fuerte: catalizador Bybit en agenda + unipcs entero. Débil: momentum 0/25 HOY (cuchillo). *Moon bag por mapa; recompra si banda aguanta 24h.</div>
-</div><div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(-1deg)"></div><div class="pin"></div><div class="num">49</div></div>
-  <div class="tsinfo"><div class="tname">GG</div><div class="cat">semillero · RH Chain · 4 días</div><div class="cat" style="color:#8B94A7;font-weight:700;margin-top:3px">RADAR</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-g" style="width:72%"></div></div><span class="pts">18/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-a" style="width:60%"></div></div><span class="pts">21/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-r" style="width:20%"></div></div><span class="pts">5/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-r" style="width:33%"></div></div><span class="pts">5/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Fuerte: unipcs con tamaño. Débil: sin consolidación (banda sucia), ticket vendedor mayor. Reevalúa con cierre de hoy.</div>
-</div><div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(-3deg)"></div><div class="pin"></div><div class="num">48</div></div>
-  <div class="tsinfo"><div class="tname">Rabbit</div><div class="cat">RH Chain · 40h · ⚠</div><div class="cat" style="color:#8B94A7;font-weight:700;margin-top:3px">RADAR · examen 16:40</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-a" style="width:68%"></div></div><span class="pts">17/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-a" style="width:60%"></div></div><span class="pts">21/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-r" style="width:20%"></div></div><span class="pts">5/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-r" style="width:33%"></div></div><span class="pts">5/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Fuerte: la mejor estructura joven. Débil: traderpow capituló (cero-ventas roto) y $7M sin sostener. Casi seguro veto.</div>
-</div><div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(-14deg)"></div><div class="pin"></div><div class="num">42</div></div>
-  <div class="tsinfo"><div class="tname">MOO</div><div class="cat">semillero · RH Chain · verificado</div><div class="cat" style="color:#8B94A7;font-weight:700;margin-top:3px">RADAR (tarde)</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-g" style="width:92%"></div></div><span class="pts">23/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-r" style="width:22%"></div></div><span class="pts">8/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-r" style="width:12%"></div></div><span class="pts">3/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-a" style="width:53%"></div></div><span class="pts">8/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Fuerte: estructura y liquidez. Débil: cero titulares y distribución en marcha (+106% hoy). Perseguirla = ser traderpow.</div>
-</div><div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(-16deg)"></div><div class="pin"></div><div class="num">41</div></div>
-  <div class="tsinfo"><div class="tname">Basecat</div><div class="cat">Base · 17 días</div><div class="cat" style="color:#8B94A7;font-weight:700;margin-top:3px">RADAR</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-g" style="width:72%"></div></div><span class="pts">18/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-a" style="width:60%"></div></div><span class="pts">21/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-r" style="width:4%"></div></div><span class="pts">0/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-r" style="width:13%"></div></div><span class="pts">2/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Fuerte: unipcs #1 holder entero. Débil: momentum 0 (dinero empatado, piso roto 2x) y catalizador consumido.</div>
-</div><div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(-32deg)"></div><div class="pin"></div><div class="num">32</div></div>
-  <div class="tsinfo"><div class="tname">CLAN</div><div class="cat">RH Chain · 6 días · ⚠</div><div class="cat" style="color:#8B94A7;font-weight:700;margin-top:3px">BAJO</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-a" style="width:48%"></div></div><span class="pts">12/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-a" style="width:51%"></div></div><span class="pts">18/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-r" style="width:4%"></div></div><span class="pts">0/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-r" style="width:13%"></div></div><span class="pts">2/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Doble voto pero -65% de máximos, sin reconquista de $4.2M. Solo si gira todo.</div>
-</div><div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(21deg)"></div><div class="pin"></div><div class="num">62</div></div>
-  <div class="tsinfo"><div class="tname">CETS 招财猫</div><div class="cat">BNB · Flap · 27 días · verificado</div><div class="cat" style="color:#F5B843;font-weight:700;margin-top:3px">OBSERVACIÓN+</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-a" style="width:60%"></div></div><span class="pts">15/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-g" style="width:100%"></div></div><span class="pts">35/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-r" style="width:20%"></div></div><span class="pts">5/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-a" style="width:47%"></div></div><span class="pts">7/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">El mejor respaldo del tablero (B perfecto: DCE $242K sin una venta + unipcs) con el peor momentum (reprobó su examen 14:40: piso perforado, ticket vendedor 2x). Mancha estructural: liquidez 1.6%. Se compra cuando C despierte, no antes.</div>
+
+<div class="card">
+  <div class="head"><div><div class="tname">3 · Basecat — REHABILITACIÓN</div><div class="tmeta">ahora $0.0258 (MC $25.7M) · rompió el piso de $26M · unipcs entero (#1 holder)</div></div><span class="badge b-no">1 DE 3 — NO COMPRAR AÚN</span></div>
+  <p class="story" style="font-family:var(--mono);font-size:12.5px;line-height:1.8">▸ <b>GATILLO:</b> rehabilitación completa — las 3 condiciones en un mismo escaneo:<br>▸ <b>CONDICIONES:</b> ① dinero 1D neto COMPRADOR en $ (hoy: $3.8M vs $4.0M, falla) · ② mínimo diario que RESPETE $26M (reconquista del piso roto) · ③ unipcs entero (hoy ✓ — único punto a favor)<br>▸ <b>TAMAÑO: $12</b> en una compra<br>▸ <b>SALIDAS:</b> stop cierre &lt; <b class="r">$0.022</b> (bajo la entrada de unipcs $0.0241 = tesis rota) · TP1 <b class="g">$0.040</b> (vender mitad) · forzosa: Sell de unipcs<br>▸ <b>Contexto:</b> catalizador Coinbase YA consumido (24-ago) — esto es apuesta a acumulación post-listado de unipcs, no a evento.</p>
 </div>
-<div class="tsrow">
-  <div class="gauge"><div class="dial"></div><div class="hole"></div><div class="needle" style="transform:translateX(-50%) rotate(30deg)"></div><div class="pin"></div><div class="num">67</div></div>
-  <div class="tsinfo"><div class="tname">SAYLORMOON ★★</div><div class="cat">RH · LONG · 4d 16h · ⚠ Unverified</div><div class="cat" style="color:#F5B843;font-weight:700;margin-top:3px">OBSERVACIÓN+ · MAPA 8</div></div>
-  <div class="bks"><div class="bk"><span>A·Estructura</span><div class="tr"><div class="fl f-g" style="width:88%"></div></div><span class="pts">22/25</span></div><div class="bk"><span>B·Ballenas</span><div class="tr"><div class="fl f-g" style="width:71%"></div></div><span class="pts">25/35</span></div><div class="bk"><span>C·Momentum</span><div class="tr"><div class="fl f-a" style="width:60%"></div></div><span class="pts">15/25</span></div><div class="bk"><span>D·Narrativa</span><div class="tr"><div class="fl f-r" style="width:33%"></div></div><span class="pts">5/15</span></div></div>
-  <div style="flex:1 1 100%;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Ficha 15:20: la MEJOR estructura del semillero (top10 15%, liq 10.4%, mínimos ascendentes 3 días: $2.19→$2.44→$2.89M) + doble ballena grande sin una venta (eric.eth +100%, inyourwalls +66%). Le falta: titular (unipcs solo $3.41 de polvo Received), catalizador con fecha (puro meme MSTR-proxy), y el dinero sigue empatado. Compresión: máximos bajando + mínimos subiendo = resolución cerca.</div>
+
+<div class="card">
+  <div class="head"><div><div class="tname">4 · CLAN — SONDA DE DOBLE VOTO</div><div class="tmeta">ahora ~$3.3M MC · ⚠ Unverified · unipcs $20K adentro + eric.eth compró hoy $2.5K</div></div><span class="badge b-no">ESTABILIZACIÓN SIN CONFIRMAR</span></div>
+  <p class="story" style="font-family:var(--mono);font-size:12.5px;line-height:1.8">▸ <b>GATILLO:</b> reconquista confirmada, las 3 en un mismo escaneo:<br>▸ <b>CONDICIONES:</b> ① MC reconquista <b class="g">$4.2M</b> (la entrada de unipcs) · ② mínimos 1D ascendentes confirmados (hoy: incipientes) · ③ dinero 1D neto positivo (hoy: $1.3M vs $1.4M, falla)<br>▸ <b>TAMAÑO: $10</b> — sonda de clase lotería, ni un dólar más<br>▸ <b>SALIDAS:</b> stop <b class="r">-40%</b> desde entrada · TP1 al <b class="g">2x</b>: retirar capital · forzosa: Sell de unipcs<br>▸ <b>Por qué está acá:</b> dos ballenas independientes (unipcs con tesis + eric.eth hoy) en un micro de $3M — el perfil PAIR pero con la lección aprendida: condiciones primero, reloj después.</p>
 </div>
-<div class="tsrow" style="opacity:.75">
-  <div class="tsinfo" style="flex:0 0 96px;text-align:center"><div class="tname" style="font-size:22px">15–35</div><div class="cat">sin tacómetro</div></div>
-  <div class="tsinfo"><div class="tname">Semillero resto (11)</div><div class="cat" style="color:#8B94A7">COHORTE LOTERÍA · 14 días sin plata</div></div>
-  <div style="flex:2 1 240px;font-size:11.5px;color:var(--mut);font-family:var(--mono)">GOYBEAM · GRID (top10 66%) · ROBINCAT (1d) · TIM (-63%, tilt) · MERRYMEN · VIBES · PFWA · PRISM · WORTHLESS · YIELD ($5K MC) · WEBCADE · CLANKER (nueva 2-sep: Manu recargó a $2.3M, narrativa anti-IA, sin titulares — ficha en próximo escaneo) · SPACEHOOD-reentrada (Manu recompró $993 a $10.3M tras cosechar a $16.8M — juega con plata de la casa; hoy -31% con dinero vendedor). Todas fallan el bloque B: cero titulares.</div>
-</div>
-<div class="tsrow" style="opacity:.75;border-color:#3A1B20">
-  <div class="tsinfo" style="flex:0 0 96px;text-align:center"><div class="tname" style="font-size:22px;color:#F2555A">0</div><div class="cat">VETO</div></div>
-  <div class="tsinfo"><div class="tname">LUCIA · FRONG · copycats · PAIR*</div><div class="cat" style="color:#F2555A">LISTA NEGRA / DESCARTE</div></div>
-  <div style="flex:2 1 240px;font-size:11.5px;color:var(--mut);font-family:var(--mono)">Vetos automáticos anulan todo score. *PAIR en revisión (sale si sostiene &gt;$5M por 48h con dinero comprador — hoy $4.4M, tercera ballena acumulando: inyourwalls $99K). **BOW entra a revisión también: unipcs $123K (+31%) y DCE recargando en un token de lista negra — misma condición: estructura sostenida, no rebote.</div>
-</div>
-<details class="fold"><summary>📐 El checklist puntuado — cómo se calcula el Token Score (100 pts)</summary><div class="inner">
-<div class="twrap"><table>
-<colgroup><col style="width:30%"><col style="width:12%"><col style="width:58%"></colgroup>
-<tr><th>Criterio</th><th>Puntos</th><th>Regla</th></tr>
-<tr><td colspan="3" style="color:#F5B843;font-family:var(--mono);font-size:10px">A · ESTRUCTURA (25 pts)</td></tr>
-<tr><td>Edad</td><td>5</td><td>&gt;48h = 5 · 24–48h = 2 · &lt;24h = 0</td></tr>
-<tr><td>Concentración top 10</td><td>10</td><td>&lt;20% = 10 · 20–35% = 5 · &gt;35% = VETO</td></tr>
-<tr><td>Liquidez / MC</td><td>5</td><td>&gt;5% = 5 · 2–5% = 3 · &lt;2% = 0 (&lt;1.5% = VETO)</td></tr>
-<tr><td>Etiquetas</td><td>5</td><td>Verificado o solo "Unverified" con web+social = 5 · 2 banderas = 2 · 3+ = VETO</td></tr>
-<tr><td colspan="3" style="color:#F5B843;font-family:var(--mono);font-size:10px">B · BALLENAS (35 pts — el corazón del edge)</td></tr>
-<tr><td>Titular con posición</td><td>10</td><td>unipcs / ether_monk / DCE (entrada por Received: máx 5)</td></tr>
-<tr><td>Doble voto independiente</td><td>8</td><td>Segunda ballena o fuente auditada comprando por su cuenta</td></tr>
-<tr><td>Tamaño real</td><td>5</td><td>&gt;$50K o &gt;1% de la cartera de la ballena (sonda testimonial = 2)</td></tr>
-<tr><td>Compra fresca</td><td>6</td><td>Alguna compra de ballena en las últimas 48h</td></tr>
-<tr><td>Cero ventas</td><td>6</td><td>NINGUNA ballena presente vendió (una capitulación = 0)</td></tr>
-<tr><td colspan="3" style="color:#F5B843;font-family:var(--mono);font-size:10px">C · FLUJO Y MOMENTUM (25 pts — la cura del punto ciego)</td></tr>
-<tr><td>Dinero 1D en dólares</td><td>8</td><td>Neto comprador = 8 · empate = 3 · vendedor = 0</td></tr>
-<tr><td>Ticket medio</td><td>4</td><td>Comprador ≥ vendedor = 4 (vendedor &gt;20% mayor = 0: distribución)</td></tr>
-<tr><td>Mínimos 1D</td><td>8</td><td>Ascendentes = 8 · planos = 4 · descendentes = 0</td></tr>
-<tr><td>Holders</td><td>5</td><td>Creciendo entre escaneos = 5</td></tr>
-<tr><td colspan="3" style="color:#F5B843;font-family:var(--mono);font-size:10px">D · NARRATIVA Y CATALIZADOR (15 pts)</td></tr>
-<tr><td>Narrativa viva</td><td>5</td><td>Tema activo en el Radar X que NO sea campaña de bolsas propias</td></tr>
-<tr><td>Catalizador en agenda</td><td>7</td><td>Evento concreto por venir = 7 · ya consumido = 2 · ninguno = 0</td></tr>
-<tr><td>Fuente de la atención</td><td>3</td><td>Orgánica = 3 · solo amplificadores con bolsa = 0</td></tr>
-</table></div>
-<div class="note"><b>VETOS (score 0 automático):</b> top10 &gt;35% · 3+ banderas · liquidez &lt;1.5% · copycat/derivado de otro token · campaña coordinada de bolsa propia como única fuente de atención · lista negra. <b>MODIFICADOR DE RÉGIMEN:</b> con alerta amarilla de BTC, ningún score habilita compras por sí solo (el mapa y sus condiciones mandan); con roja, todo suspendido. <b>Categorías:</b> 80–100 CANDIDATO (mapa obligatorio) · 60–79 OBSERVACIÓN+ · 40–59 RADAR · &lt;40 descarte. <b>El score mide tokens para ENTRAR; las posiciones abiertas se gobiernan por sus mapas.</b> Actualización: diaria con los datos del Escaneo-A/B — y como es 100% mecánico, es la próxima pieza automatizable en Cowork. <b>Hallazgos del semillero (2-sep):</b> DCE tiene CERO de las 15 semillas (el holder puro no juega lotería) · ether_monk tampoco (solo $154 simbólicos) · unipcs es el único titular sembrador (4 de 15) · y el patrón completo de Manu quedó expuesto: cosecha ganadoras callado Y promedia perdedoras a la baja (TIM 3x, WEBCADE 5x, PAIR 3x) — su semillero es 60% rojo y vive del MOO/SPACEHOOD ocasional que paga todo. Conclusión reforzada: sus semillas solo se juegan con segundo voto titular.</div>
-</div></details>
+
+<div class="note"><b>Lo que salió de esta sección y dónde vive ahora:</b> microduck y el moon bag de MarsCoin → son POSICIONES (sus stops/TPs están en la Cartera) · PAIR → lista negra (colapsó, filtro regla 8 ✓) · USELESS → escapada consolidada a $90M+, banda $60–63M queda como reliquia del marcador · FRONG → descartado por cero ballenas · SPACEHOOD → caso cerrado en el marcador · HMM y CASHCAT → lista negra directa (promoción de bolsa propia de KALEO detectada por el Radar X). <b>Resumen ejecutivo: 4 órdenes armadas, $67 comprometibles como máximo total, reserva mínima de $100 siempre intacta.</b></div>
 <div id="s-obs" class="stitle">👀 En observación — sin orden de compra todavía</div>
 <div class="twrap"><table>
 <colgroup><col style="width:18%"><col style="width:82%"></colgroup>
 <tr><th>Qué</th><th>Qué esperamos para que ascienda (o se descarte)</th></tr>
-<tr><td><b>CETS ★</b></td><td>NUEVO 2-sep: el candidato de la rotación china — DCE $250K (+852%, y RECARGÓ ayer) + unipcs sonda fresca HOY a precio actual ($22.5K a $16.9M). Score ~63: bloque B casi perfecto, PERO liquidez 1.6% (borde del veto) y dinero levemente vendedor con -11% en el día. EXAMEN 14:40: REPROBÓ las 3 (mín $14.2M perforado, flujo vendedor, ticket venta 2x) — DCE compró el techo. Sigue acá; mismas condiciones, sin apuro: el gato se compra cuando deje de repartirse.</td></tr>
 <tr><td><b>CACHE</b></td><td>Doble voto (ether_monk $29K desde $1.5M + eric.eth $4.9K hoy) pero ya corrió +76%. Espera: ficha completa + retroceso definible. Sin banda, no se toca.</td></tr>
-<tr><td><b>SAYLORMOON ★★</b></td><td>TRIPLE VOTO (2-sep): Manu +38% + eric.eth ($2,486 a $2.6M) + inyourwalls ($61K, +54%, 6 de 6 compras desde $2M). Es la acumulación multi-billetera más fuerte del semillero. FICHA COMPLETA = PRIORIDAD 1 del próximo Escaneo-A → con estructura limpia, mapa directo.</td></tr>
-<tr><td><b>Semillas de Manu</b></td><td>Tickets vivos (PRISM, PFWA, MERRYMEN, VIBES, TIM, ROBINCAT, JUGGERNAUT, memestock…) — GG y SAYLORMOON ya ascendieron. Espera: que alguna sume 2º voto de ballena titular o crezca &gt;30% en su cartera.</td></tr>
+<tr><td><b>SAYLORMOON ★</b></td><td>ASCENDIDA (1-sep noche): +38% en cartera de Manu + 2º voto de eric.eth ($2,486 a $2.6M). Próximo paso: ficha completa en Escaneo-A (edad, top10, liq, warnings, dinero 1D) → si pasa checklist, se le escribe mapa con banda y tamaño.</td></tr>
+<tr><td><b>Semillas de Manu</b></td><td>Sus 12 tickets frescos (PRISM, GG, PFWA, MERRYMEN, VIBES, SAYLORMOON, TIM, memestock…). Espera: que alguna sume 2º voto de ballena titular o crezca &gt;30% en su cartera.</td></tr>
 <tr><td><b>Wood</b></td><td>AUDITADO — NO asciende: una-bolsa (AI 86%, 90% del PnL mensual de un trade), scalps nuevos malos, y en modo distribución de AI hace 19h. Uso asignado: termómetro de distribución de AI. inyourwalls (top 10 + lista Manu) entra a la fila de auditoría.</td></tr>
 <tr><td><b>PCC</b></td><td>Tu llamada #1 (SUBE, ref. $0.00816) — resuelve 8-sep. Hoy -6%. SIN PLATA: es medición de puntería.</td></tr>
 </table></div>
@@ -711,7 +536,7 @@ El ciclo típico completo: EMERGENTE → CALIENTE → DISTRIBUYENDO → ENFRIAND
 <!-- ============ RULES ============ -->
 </div></details>
 <div class="foot">
-  v27 · 2-sep 8:31 · TP2 de microduck COBRADO: 2º trade redondo del experimento del experimento Fomo (día 2). Datos: escaneos propios vía Claude en Chrome + videos de la app + prensa cripto, con timestamps en cada sección. Análisis educativo y registro personal — no es asesoría financiera ni recomendación para terceros. Los memecoins pueden perder el 100% de su valor en horas.
+  v24 · 1-sep 22:45 · Corrida B nocturna: SAYLORMOON asciende (doble señal) · Wood NO asciende · LUCIA corregida del experimento Fomo (día 2). Datos: escaneos propios vía Claude en Chrome + videos de la app + prensa cripto, con timestamps en cada sección. Análisis educativo y registro personal — no es asesoría financiera ni recomendación para terceros. Los memecoins pueden perder el 100% de su valor en horas.
 </div>
 
 </body>
