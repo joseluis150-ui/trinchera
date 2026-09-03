@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parte de Trinchera v16 — 1 sep 2026 (mañana)</title>
+<style>
+  :root{
+    --bg:#0B0E14; --panel:#131826; --panel2:#0F1420; --line:#232B3D;
+    --txt:#EDF1F7; --mut:#8B94A7; --dim:#5A6373;
+    --amber:#F5B843; --green:#3DD68C; --red:#F2555A; --blue:#6C8CFF;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--txt);font-family:var(--sans);line-height:1.45;padding:20px 14px 40px;max-width:640px;margin:0 auto}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--amber);text-transform:uppercase}
+  h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin:4px 0 2px}
+  .sub{color:var(--mut);font-size:13px;margin-bottom:16px}
+  .vtag{display:inline-block;font-family:var(--mono);font-size:10px;color:var(--blue);border:1px solid #23304F;border-radius:5px;padding:2px 7px;margin-left:6px;vertical-align:middle}
+
+  .alert{background:linear-gradient(180deg,#211013,#131826);border:1px solid #52242A;border-radius:14px;padding:13px 14px;margin-bottom:14px;font-size:13px;color:#E8D8DA}
+  .alert b{color:#fff}
+  .alert .tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#fff;background:var(--red);border-radius:4px;padding:3px 7px;font-weight:700;margin-bottom:6px}
+
+  .macro{background:linear-gradient(180deg,#1A1206,#131826);border:1px solid #3A2E12;border-radius:14px;padding:13px 14px;margin-bottom:20px;font-size:13px;color:#D8DEE9}
+  .macro .rule{margin-top:8px;padding-top:8px;border-top:1px dashed #3A2E12;font-family:var(--mono);font-size:12px;color:var(--amber)}
+
+  .stitle{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;margin:24px 0 12px;display:flex;align-items:center;gap:10px}
+  .stitle::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:10.5px;table-layout:auto}
+  .twrap{border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  td,th{word-break:normal;overflow-wrap:break-word;hyphens:none}
+  td b{white-space:nowrap}
+  .nw{white-space:nowrap;font-family:var(--mono);font-size:10px}
+  .ok,.ko{white-space:nowrap}
+  .hot,.cool,.dead,.open{white-space:normal}
+  @media (max-width:430px){ table{font-size:9.5px} .nw{font-size:9px} th{font-size:8px} }
+  .twrap table{border:0}
+  th{font-family:var(--mono);font-size:8.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--dim);text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);background:var(--panel2);white-space:normal;line-height:1.35}
+  td{padding:8px 6px;border-bottom:1px solid var(--panel2);color:#C6CDDA;vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  td b{color:var(--txt)}
+  .hot{color:var(--green);font-family:var(--mono);font-size:10.5px;font-weight:700}
+  .cool{color:var(--amber);font-family:var(--mono);font-size:10.5px;font-weight:700}
+  .dead{color:var(--red);font-family:var(--mono);font-size:10.5px;font-weight:700}
+  .open{color:var(--blue);font-family:var(--mono);font-size:10.5px;font-weight:700}
+  .ok{color:var(--green);font-weight:800}
+  .ko{color:var(--red);font-weight:800}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px;margin-bottom:14px}
+  .card.hero{border-color:#2E3A22;box-shadow:0 0 0 1px #24351E inset}
+  .head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:4px}
+  .tname{font-size:18px;font-weight:800}
+  .tmeta{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:2px}
+  .badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;padding:5px 9px;border-radius:6px;white-space:nowrap}
+  .b-buy{background:#12291E;color:var(--green);border:1px solid #1E4030}
+  .b-no{background:#2A1315;color:var(--red);border:1px solid #45201F}
+  .story{font-size:13px;color:#C6CDDA;margin:6px 0 2px}
+  .story b{color:var(--txt)}
+
+  .rail-wrap{margin:14px 0 2px}
+  .rail{position:relative;height:6px;border-radius:3px;background:linear-gradient(90deg,#F2555A 0%,#F2555A 16%,#2A3242 16%,#2A3242 100%)}
+  .zone{position:absolute;top:-3px;height:12px;background:rgba(61,214,140,.22);border:1px solid rgba(61,214,140,.55);border-radius:3px}
+  .tick{position:absolute;top:-7px;width:2px;height:20px;border-radius:1px}
+  .t-stop{background:var(--red)} .t-now{background:#fff;box-shadow:0 0 8px rgba(255,255,255,.7)} .t-tp{background:var(--green)}
+  .t-whale{background:var(--amber)}
+  .lbl{position:absolute;top:18px;transform:translateX(-50%);font-family:var(--mono);font-size:9px;color:var(--mut);white-space:nowrap;text-align:center;line-height:1.3}
+  .lbl b{display:block;color:var(--txt);font-size:10px}
+  .lbl.up{top:-30px}
+  .lbl .g{color:var(--green)} .lbl .r{color:var(--red)} .lbl .w{color:#fff}
+  .rail-pad{height:32px} .rail-pad-top{height:24px}
+
+  .arch{display:flex;flex-direction:column;gap:8px}
+  .arch .row{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:12px;color:var(--mut)}
+  .arch .row b{color:var(--txt);font-family:var(--mono);font-size:11px}
+
+  .rules{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 15px}
+  .rules li{list-style:none;font-size:12.5px;color:#C6CDDA;padding:6px 0;border-bottom:1px solid var(--panel2);display:flex;gap:10px}
+  .rules li:last-child{border-bottom:0}
+  .rules .n{font-family:var(--mono);color:var(--amber);font-weight:700;font-size:12px;min-width:16px}
+
+  .note{background:#10161F;border:1px dashed #2A3550;border-radius:14px;padding:12px 14px;font-size:12.5px;color:#C6CDDA;margin-bottom:14px}
+  .note b{color:var(--txt)}
+  .foot{margin-top:24px;padding-top:14px;border-top:1px solid var(--line);font-size:11px;color:var(--dim)}
+
+  /* ---------- optimización desktop (no afecta móvil) ---------- */
+  @media (min-width: 900px){
+    body{max-width:1100px;padding:32px 40px 60px;font-size:15px}
+    h1{font-size:38px}
+    .sub{font-size:14px}
+    table{font-size:12.5px}
+    th{font-size:10px;padding:10px 12px}
+    td{padding:10px 12px}
+    .nw{font-size:11.5px}
+    .card{padding:20px 24px}
+    .tname{font-size:22px}
+    .tmeta{font-size:12px}
+    .story{font-size:14.5px}
+    .why{font-size:13px}
+    .lbl{font-size:10.5px}
+    .lbl b{font-size:12px}
+    .rail-wrap{margin:22px 0 8px}
+    .alert{font-size:14px;padding:16px 18px}
+    .macro{font-size:14px;padding:16px 18px}
+    .note{font-size:13.5px;padding:15px 18px}
+    .lesson{font-size:14px}
+    .rules li{font-size:14px;padding:9px 0}
+    .stitle{font-size:12px;margin:32px 0 14px}
+    .arch{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .arch .row{font-size:12.5px}
+    .wl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .alloc-leg{font-size:12.5px}
+    .foot{font-size:12px}
+  }
+  @media (min-width: 1400px){
+    body{max-width:1240px}
+  }
+
+  details.fold{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+  details.fold summary{cursor:pointer;padding:12px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:#D8DEE9;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  details.fold summary::after{content:"▸ abrir";color:var(--dim);font-size:10px}
+  details.fold[open] summary::after{content:"▾ cerrar"}
+  details.fold summary:hover{background:var(--panel2)}
+  details.fold .inner{padding:0 12px 12px}
+  .scorestrip{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+  .scorestrip div{flex:1;min-width:110px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px;text-align:center}
+  .scorestrip .k{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+  .scorestrip .v{font-family:var(--mono);font-size:20px;font-weight:800;margin-top:2px}
+
+  /* ---------- pulido editorial ---------- */
+  body{line-height:1.55}
+  .story{line-height:1.6}
+  .note{line-height:1.6;border-left:3px solid var(--line)}
+  .stitle{display:flex;align-items:center;gap:10px}
+  .stitle::after{content:"";flex:1;height:1px;background:var(--line)}
+  .card{margin-bottom:14px}
+  .twrap{margin-bottom:14px}
+  details.fold{margin-bottom:14px}
+  .toc{position:sticky;top:0;z-index:50;background:rgba(11,14,20,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:0 -16px 18px;padding:10px 16px;display:flex;gap:14px;overflow-x:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em}
+  .toc a{color:var(--dim);text-decoration:none;white-space:nowrap;text-transform:uppercase}
+  .toc a:hover{color:var(--amber)}
+  .toc b{color:#D8DEE9;font-weight:400}
+  @media (min-width:900px){ .toc{margin:0 -40px 24px;padding:12px 40px;font-size:11.5px} }
+
+  /* ---------- legibilidad de mapas de ejecución ---------- */
+  .rail-wrap{margin:34px 0 14px}
+  .rail-pad-top{height:44px}
+  .rail-pad{height:48px}
+  .lbl{font-size:11px;line-height:1.5}
+  .lbl b{font-size:13px;display:block;margin-bottom:3px}
+  .rail-cap{font-size:12px;margin-bottom:8px;color:#B9C1CF}
+  .card .story{font-size:14px;line-height:1.75}
+  .card p.story[style*="font-family"]{font-size:13px !important;line-height:1.8 !important;letter-spacing:.01em}
+  @media (min-width:900px){
+    .rail-wrap{margin:40px 0 18px}
+    .rail-pad-top{height:50px}
+    .rail-pad{height:54px}
+    .lbl{font-size:12px}
+    .lbl b{font-size:14.5px;margin-bottom:4px}
+    .rail-cap{font-size:13px}
+    .card .story{font-size:15px;line-height:1.8}
+    .card p.story[style*="font-family"]{font-size:14px !important;line-height:1.85 !important}
+  }
+
+  /* ---------- precios de mapas: protagonistas ---------- */
+  .lbl b{font-size:15px;letter-spacing:.02em;text-shadow:0 0 12px rgba(0,0,0,.9)}
+  .lbl{font-size:10.5px;color:#96A0B3}
+  .rail-pad-top{height:52px}
+  .rail-pad{height:56px}
+  .rail{height:7px}
+  .tick{width:3px;height:19px;top:-6px}
+  @media (min-width:900px){
+    .lbl b{font-size:17px}
+    .lbl{font-size:11.5px}
+    .rail-pad-top{height:58px}
+    .rail-pad{height:62px}
+  }
+
+  /* ---------- fix definitivo: etiquetas ancladas fuera del riel ---------- */
+  .lbl{top:calc(100% + 13px);line-height:1.45}
+  .lbl.up{top:auto;bottom:calc(100% + 13px)}
+  .lbl b{margin-bottom:2px}
+  .rail-pad-top{height:64px}
+  .rail-pad{height:66px}
+  .rail-wrap{margin:20px 0 10px}
+  .rail-cap{margin-bottom:14px}
+  @media (min-width:900px){
+    .lbl{top:calc(100% + 15px)}
+    .lbl.up{top:auto;bottom:calc(100% + 15px)}
+    .rail-pad-top{height:72px}
+    .rail-pad{height:74px}
+  }
+
+  .orden{display:block;margin-top:7px;padding:7px 9px;background:#0A0F1A;border:1px solid #232B3D;border-left:3px solid var(--amber);border-radius:8px;font-family:var(--mono);font-size:11.5px;line-height:1.7;color:#D8DEE9}
+  .orden .r{color:var(--red);font-weight:700}.orden .g{color:var(--green);font-weight:700}.orden .a{color:var(--amber);font-weight:700}
+  @media (min-width:900px){.orden{font-size:12.5px}}
+</style>
+</head>
+<body>
+
+<div class="kicker">Dashboard acumulativo · Fomo App</div>
+<h1>Parte de Trinchera <span class="vtag">v17</span></h1>
+<div class="sub">Domingo 30 de agosto, 2026 · Edición 7 · Lunes 31-ago · Mapeo de 3 clanes completado (informe 13:30–13:55 UTC) · Congelador ACTIVO · <b style="color:#EDF1F7">Las jugadas primero; el desarrollo, después</b></div>
+<nav class="toc"><b>ÍNDICE</b><a href="#s-hoy">① Posiciones</a><a href="#s-mapas">② Mapas de compra</a><a href="#s-obs">③ Observación</a><a href="#s-arch">④ Archivo</a></nav>
+<div class="alert" style="margin-bottom:10px;border-color:#F5B843"><span class="tag" style="background:#F5B843;color:#0B0E14">22:45 · CIERRE DEL DÍA 1</span> <b>SAYLORMOON cumplió LAS DOS condiciones de ascenso en un día:</b> creció +38% en la cartera de Manu Y eric.eth le entró ($2,486 a $2.6M) — primera semilla que asciende: pedirle ficha completa en el próximo Escaneo-A. <b>eric.eth agregó a microduck DOS veces más</b> (posición $175.7K, +398%) y desplegó $28K en fone. <b>Wood NO asciende:</b> una-bolsa extrema (AI = 86% del patrimonio) y está DISTRIBUYENDO AI hace 19 horas arriba de $300M — se usa como termómetro de cuándo AI se reparte, no como fuente. Contraste clave: DCE jamás vendió un AI (88% de sus $8.6M). <b>CORRECCIÓN: DCE NO tiene ni tuvo LUCIA</b> (el dato de anoche fue error de escáner — LUCIA queda descartada del todo: ficha de terror + sin respaldo). Manu: 4 cosechas CALLADAS confirmadas + 5 semillas nuevas, incluida FRONG (a $5.9M — la que descartamos por cero ballenas ahora tiene al sembrador). microduck TP1 $0.022 vigente para 2ª aproximación · Rabbit decide hoy 16:40 · BTC amarillo. <span style="color:#F5B843;font-family:ui-monospace,Menlo,monospace;font-size:11px">⛔ BTC cierre &lt; $75,500 = venta total.</span></div>
+
+<!-- ============ JUGADAS ACTIVAS ============ -->
+<div id="s-hoy" class="stitle">💼 Cartera de José (@jlh87) — 1-sep 22:10</div><div class="twrap"><table>
+<colgroup><col style="width:17%"><col style="width:14%"><col style="width:12%"><col style="width:57%"></colgroup>
+<tr><th>Token</th><th>Valor</th><th>PnL</th><th>Estado y orden vigente</th></tr>
+<tr><td><b>PENGU</b><br><span style="color:#5A6373;font-size:9.5px">16.3K</span></td><td>$137.73</td><td class="cool">-5.64%</td><td>Posición lenta, la única en rojo y la más grande. Ballena sin vender (23 tx verificadas) pero sin agregar desde 27-ago; ratio del día el peor del grupo.<br><span class="orden">⛔ <span class="r">VENDER TODO si toca $0.0073</span> · 🎯 <span class="g">VENDER MITAD en $0.0127</span> · 🐋 <span class="a">VENDER TODO si ether_monk vende</span> · No agregar</span></td></tr>
+<tr><td><b>MarsCoin</b><br><span style="color:#5A6373;font-size:9.5px">942.12 · moon bag</span></td><td>$67.64</td><td class="hot">+39.9% · GRATIS</td><td>Trade redondo cerrado: $306.55 realizados sobre $266.46 invertidos (TP1+TP2). El resto corre con plata de la casa; unipcs entero (101 swaps sin ventas) y tesis nueva: futuros en Bybit.<br><span class="orden">⛔ <span class="r">VENDER RESTO si cierra &lt; $0.057</span> · 🚀 sin TP — corre con la ballena · 🐋 <span class="a">VENDER TODO si unipcs vende</span> · ♻ Recompra: ver mapa 1</span></td></tr>
+<tr><td><b>microduck</b><br><span style="color:#5A6373;font-size:9.5px">1.2K</span></td><td>$24.80</td><td class="hot">+38.5%</td><td>Sembrada hoy 6:19 en banda. TRIPLE TITÁN (15:28): ether_monk agregando ($179K), unipcs adentro (+463%) y eric.eth comprando hace 1h — el mejor respaldo de ballenas del tablero en tu token más chico.<br><span class="orden">⛔ <span class="r">VENDER TODO si toca $0.0118</span> · 🎯 <span class="g">VENDER MITAD en $0.022</span> (alerta: $0.0213) · 🐋 <span class="a">VENDER TODO si ether_monk vende</span></span></td></tr>
+<tr><td><b>牛来</b><br><span style="color:#5A6373;font-size:9.5px">CERRADA 31-ago</span></td><td>—</td><td class="hot">+77.5% ✓</td><td>Primer ciclo 100% completo: $45.14 → $80.51 por salida forzosa (unipcs vendió; ejecución en 11 min).</td></tr>
+<tr><td><b>TOTAL</b></td><td><b>$442.80</b></td><td class="hot">+44.0% s/depósitos</td><td>Cash: <b style="color:#3DD68C">$201.58 (45.5% de la cuenta)</b> · Depósitos $300 · Realizado acumulado: 2 TPs MarsCoin + ciclo 牛来 · Rank #13,435 · PnL 24h +$64.87</td></tr>
+</table></div>
+<div id="s-mapas" class="stitle">Mapas de ejecución — SOLO candidatos de compra activos</div>
+<div class="note" style="margin-bottom:12px"><b>Regla de esta sección:</b> acá viven únicamente los tokens con orden de compra condicional escrita — gatillo, condiciones, tamaño y salidas. Si las condiciones se cumplen, <b>el mapa ES la orden</b> (no se renegocia en caliente). Lo que no está acá, no se compra. Las posiciones ya tomadas viven en la Cartera con sus stops/TPs; los descartados viven en el Marcador.</div>
+
+<div class="card">
+  <div class="head"><div><div class="tname">1 · MarsCoin — RECOMPRA</div><div class="tmeta">ahora $0.0662 · banda NO tocada (mínimo del retroceso: $0.0613)</div></div><span class="badge b-watch">ALERTA EN $0.061</span></div>
+  <p class="story" style="font-family:var(--mono);font-size:12.5px;line-height:1.8">▸ <b>GATILLO:</b> retroceso a banda <b class="g">$0.055–0.060</b> (MC 55–60M) que AGUANTE 24h sin perforar<br>▸ <b>CONDICIONES (las 3):</b> ① banda con 24h de aguante · ② unipcs SIN Sells · ③ dinero 1D neto comprador<br>▸ <b>TAMAÑO: $35</b> en una sola compra a mercado dentro de banda<br>▸ <b>SALIDAS de lo recomprado:</b> stop cierre &lt; <b class="r">$0.048</b> · TP1 <b class="g">$0.072</b> (vender mitad) · forzosa: Sell de unipcs (todo)<br>▸ <b>Lógica:</b> la resistencia del TP1 vuelta soporte, con la tesis Bybit por delante. Si nunca retrocede, el moon bag captura el catalizador igual.</p>
+</div>
+
+<div class="card">
+  <div class="head"><div><div class="tname">2 · Rabbit — ESTRENO REGLA 8</div><div class="tmeta">ahora MC $5.6M · 22h de vida · ⚠ Unverified · decide MAÑANA 2-sep ~16:40</div></div><span class="badge b-watch">RELOJ: 48H MAÑANA 16:40</span></div>
+  <p class="story" style="font-family:var(--mono);font-size:12.5px;line-height:1.8">▸ <b>GATILLO:</b> mañana a partir de las 16:40, si TODO esto se cumple:<br>▸ <b>CONDICIONES (las 4):</b> ① 48h de vida cumplidas · ② MC recuperó y sostiene <b class="g">&gt; $7M</b> · ③ unipcs y traderpow sin Sells netos · ④ nunca en vela diaria &gt; +40% (regla 2 manda)<br>▸ <b>TAMAÑO: Tramo A $10 exactos</b> al confirmar · Tramo B $10 SOLO en retroceso posterior a banda <b class="g">$4.5–5.5M</b> con ballenas enteras · sin retroceso, el tramo A ES la posición<br>▸ <b>SALIDAS:</b> stop <b class="r">-40%</b> desde entrada · TP1 al <b class="g">2x</b>: retirar TODO el capital · forzosa: Sell de unipcs<br>▸ <b>Ojo:</b> traderpow promedia a la baja en tilt (-47%) — la mano firme acá es solo unipcs. Si el MC sigue bajo $7M mañana, NO hay trade por más ballenas que acumulen.</p>
+</div>
+
+<div class="card">
+  <div class="head"><div><div class="tname">3 · Basecat — REHABILITACIÓN</div><div class="tmeta">ahora $0.0258 (MC $25.7M) · rompió el piso de $26M · unipcs entero (#1 holder)</div></div><span class="badge b-no">1 DE 3 — NO COMPRAR AÚN</span></div>
+  <p class="story" style="font-family:var(--mono);font-size:12.5px;line-height:1.8">▸ <b>GATILLO:</b> rehabilitación completa — las 3 condiciones en un mismo escaneo:<br>▸ <b>CONDICIONES:</b> ① dinero 1D neto COMPRADOR en $ (hoy: $3.8M vs $4.0M, falla) · ② mínimo diario que RESPETE $26M (reconquista del piso roto) · ③ unipcs entero (hoy ✓ — único punto a favor)<br>▸ <b>TAMAÑO: $12</b> en una compra<br>▸ <b>SALIDAS:</b> stop cierre &lt; <b class="r">$0.022</b> (bajo la entrada de unipcs $0.0241 = tesis rota) · TP1 <b class="g">$0.040</b> (vender mitad) · forzosa: Sell de unipcs<br>▸ <b>Contexto:</b> catalizador Coinbase YA consumido (24-ago) — esto es apuesta a acumulación post-listado de unipcs, no a evento.</p>
+</div>
+
+<div class="card">
+  <div class="head"><div><div class="tname">4 · CLAN — SONDA DE DOBLE VOTO</div><div class="tmeta">ahora ~$3.3M MC · ⚠ Unverified · unipcs $20K adentro + eric.eth compró hoy $2.5K</div></div><span class="badge b-no">ESTABILIZACIÓN SIN CONFIRMAR</span></div>
+  <p class="story" style="font-family:var(--mono);font-size:12.5px;line-height:1.8">▸ <b>GATILLO:</b> reconquista confirmada, las 3 en un mismo escaneo:<br>▸ <b>CONDICIONES:</b> ① MC reconquista <b class="g">$4.2M</b> (la entrada de unipcs) · ② mínimos 1D ascendentes confirmados (hoy: incipientes) · ③ dinero 1D neto positivo (hoy: $1.3M vs $1.4M, falla)<br>▸ <b>TAMAÑO: $10</b> — sonda de clase lotería, ni un dólar más<br>▸ <b>SALIDAS:</b> stop <b class="r">-40%</b> desde entrada · TP1 al <b class="g">2x</b>: retirar capital · forzosa: Sell de unipcs<br>▸ <b>Por qué está acá:</b> dos ballenas independientes (unipcs con tesis + eric.eth hoy) en un micro de $3M — el perfil PAIR pero con la lección aprendida: condiciones primero, reloj después.</p>
+</div>
+
+<div class="note"><b>Lo que salió de esta sección y dónde vive ahora:</b> microduck y el moon bag de MarsCoin → son POSICIONES (sus stops/TPs están en la Cartera) · PAIR → lista negra (colapsó, filtro regla 8 ✓) · USELESS → escapada consolidada a $90M+, banda $60–63M queda como reliquia del marcador · FRONG → descartado por cero ballenas · SPACEHOOD → caso cerrado en el marcador · HMM y CASHCAT → lista negra directa (promoción de bolsa propia de KALEO detectada por el Radar X). <b>Resumen ejecutivo: 4 órdenes armadas, $67 comprometibles como máximo total, reserva mínima de $100 siempre intacta.</b></div>
+<div id="s-obs" class="stitle">👀 En observación — sin orden de compra todavía</div>
+<div class="twrap"><table>
+<colgroup><col style="width:18%"><col style="width:82%"></colgroup>
+<tr><th>Qué</th><th>Qué esperamos para que ascienda (o se descarte)</th></tr>
+<tr><td><b>CACHE</b></td><td>Doble voto (ether_monk $29K desde $1.5M + eric.eth $4.9K hoy) pero ya corrió +76%. Espera: ficha completa + retroceso definible. Sin banda, no se toca.</td></tr>
+<tr><td><b>SAYLORMOON ★</b></td><td>ASCENDIDA (1-sep noche): +38% en cartera de Manu + 2º voto de eric.eth ($2,486 a $2.6M). Próximo paso: ficha completa en Escaneo-A (edad, top10, liq, warnings, dinero 1D) → si pasa checklist, se le escribe mapa con banda y tamaño.</td></tr>
+<tr><td><b>Semillas de Manu</b></td><td>Sus 12 tickets frescos (PRISM, GG, PFWA, MERRYMEN, VIBES, SAYLORMOON, TIM, memestock…). Espera: que alguna sume 2º voto de ballena titular o crezca &gt;30% en su cartera.</td></tr>
+<tr><td><b>Wood</b></td><td>AUDITADO — NO asciende: una-bolsa (AI 86%, 90% del PnL mensual de un trade), scalps nuevos malos, y en modo distribución de AI hace 19h. Uso asignado: termómetro de distribución de AI. inyourwalls (top 10 + lista Manu) entra a la fila de auditoría.</td></tr>
+<tr><td><b>PCC</b></td><td>Tu llamada #1 (SUBE, ref. $0.00816) — resuelve 8-sep. Hoy -6%. SIN PLATA: es medición de puntería.</td></tr>
+</table></div>
+
+<div id="s-arch" class="stitle">🗄 Archivo y aprendizaje — todo lo histórico, plegado</div>
+<details class="fold"><summary>🐋 Plantel de ballenas — auditoría 1-sep</summary><div class="inner"><div class="stitle">Plantel de ballenas — auditoría del 1-sep</div>
+<div class="twrap"><table>
+<colgroup><col style="width:16%"><col style="width:16%"><col style="width:68%"></colgroup>
+<tr><th>Trader</th><th>Rol asignado</th><th>Veredicto de auditoría</th></tr>
+<tr><td><b>unipcs / ether_monk</b></td><td class="hot">TITULARES</td><td>Sin cambios: los operativos del sistema — posiciones, gatillos y transacciones en cada escaneo.</td></tr>
+<tr><td><b>DumbCrayonEater</b></td><td class="hot">TITULAR (posiciones)</td><td><b>Absuelto de la sospecha de promotor-de-token-propio:</b> el "CrayonEater" NO es suyo (le llegó por transferencia, -60.8%, $34K de cap — probable homónimo de un imitador). Su PnL es 100% de tokens ajenos: AI 80.5% (+23,836% desde $717K de MC), ANSEM 13.4%. El holder más puro del casino: 12 días de hold medio, 3 operaciones de mercado en 24h. <b>Se siguen sus POSICIONES y transferencias (hoy recibió $118K de LUCIA a las 15:15 → radar), NO sus tesis</b> — 4 de sus 5 mejores cerradas fueron tokens que promocionó a 393K seguidores, y en TENDIES la tesis "vaulting" salió DESPUÉS de sus ventas.</td></tr>
+<tr><td><b>Manu (@KmanuS88)</b></td><td class="hot">MÉTODO ESPEJO</td><td><b>Cosechador de manual, confirmado con datos:</b> SPACEHOOD re-entrada $1,789 a $1.9M → vendió $7,787 a $16.8M (4.35x recuperado) y conserva $5,683 gratis; mismo patrón en AI (+374%, retiró 2.8x) y PROLOGUE (vendió arriba, el token se desinfló después). Recicla cosechas en semillas de $100–1K (12 tickets nuevos ayer). <b>La advertencia clave para José: vendió AI y SPACEHOOD SIN publicar tesis</b> — quien lo sigue por YouTube/tesis llega tarde a sus salidas. Se monitorean sus SEMILLAS NUEVAS (PRISM, GG, PFWA, MERRYMEN, VIBES, SAYLORMOON), no sus apuestas ya corridas.</td></tr>
+<tr><td><b>eric.eth (@econoar)</b></td><td class="open">RADAR ALTO VALOR</td><td>No asciende a titular: sus ganadoras son incopiables (BONER = 62% de la cartera desde $1M de MC, hoy $50M; AI le llegó por Received de $204K), y tiene la simetría fea de apostar más grande cuando pierde ($9–21K en las peores vs $2–6K en las mejores). Su propia bio: "plz don't copy trade me". <b>PERO sus clips frescos del día son oro como segundo voto:</b> hoy compró CLAN ($2,485), CACHE ($4,971), microduck, SPACEHOOD, BOMBA, ORBIO — cruzarlos contra nuestra watchlist en cada escaneo.</td></tr>
+<tr><td><b>Eagle_0X / KALEO / Him</b></td><td class="cool">AMPLIFICADORES</td><td>Detectores de narrativa, jamás señal de entrada.</td></tr>
+</table></div>
+<div class="note"><b>Segundos votos activados hoy por el cruce:</b> CLAN sumó a eric.eth ($2,485) a la posición de unipcs — sigue sin cumplir condiciones (bajo $4.2M) pero con dos ballenas ya no es sonda huérfana. CACHE sumó a eric.eth ($4,971) tras ether_monk. Y <b>microduck quedó como el token con más consenso de todo el tablero: tres titanes comprando/holdeando donde vos ya estás sentado.</b> Niveles sin cambios: stop $0.0118 · TP1 $0.022.</div>
+</div></details>
+<details class="fold"><summary>📡 Radar del barrido 1-sep</summary><div class="inner"><div class="stitle">Radar 1-sep — resultado del barrido de descubrimiento</div>
+<div class="twrap"><table>
+<colgroup><col style="width:15%"><col style="width:15%"><col style="width:70%"></colgroup>
+<tr><th>Token</th><th>Estado</th><th>Lectura y condición</th></tr>
+<tr><td><b>FRONG</b><br><span style="color:#5A6373;font-size:9.5px">RH Chain · $6.5M · 1 mes</span></td><td class="hot">CANDIDATO ★</td><td>El ÚNICO 100% limpio de 30 tokens del trending: verificado, top10 15.6%, liq 6.8%, dinero neto comprador, +29% día. CookHouse lo tiene chico ($21K). Falta: ¿alguna ballena verificada? → misión del próximo escaneo; con ballena, se le escribe banda.</td></tr>
+<tr><td><b>CLAN</b><br><span style="color:#5A6373;font-size:9.5px">RH Chain · $3.6M · 5 días</span></td><td class="open">CONDICIONAL</td><td>Doble fuente (trending numérico + FT $107K +30%) y unipcs le puso $20K con tesis ("poised for fireworks")... pero está -54% EN EL DÍA — cuchillo cayendo. Condición: mínimos ascendentes 1D + reconquista de $4.2M (entrada unipcs). Sin eso, ni con sonda.</td></tr>
+<tr><td><b>CACHE</b><br><span style="color:#5A6373;font-size:9.5px">ether_monk nuevo</span></td><td class="open">RADAR</td><td>Ether_monk entró con $29K a $1.5M esta madrugada y va +76% — sonda ya corrida (comprarla hoy = ser traderpow). Solo vigilar si agrega o cobra. Sus sondas también fallan: SIRIUS -61% cerrada hoy.</td></tr>
+<tr><td><b>Max / PCC</b><br><span style="color:#5A6373;font-size:9.5px">los antojos auditados</span></td><td class="cool">SIN RESPALDO / EN LLAMADA</td><td>Matriz de ballenas: Max = CERO verificadas (solo Eagle_0X) → narrativa sin respaldo, se mira por puntería. PCC = solo la sonda perdedora de ether_monk sin agregar (aunque token verificado y top10 12.8%) → sigue en tu llamada #1, sin plata. La señal de ascenso para ambos: una compra NUEVA de ballena verificada.</td></tr>
+<tr><td><b>Eagle_0X</b><br><span style="color:#5A6373;font-size:9.5px">fuente auditada</span></td><td class="cool">AMPLIFICADOR</td><td>Veredicto: 44 tesis en 6 días sobre UN token, cash $0, 99.98% concentrado en microduck+Max, peor cerrada -$117K, y todo su PnL de la semana viene de una sola jugada (microduck desde $744K MC — eso sí: ojo de francotirador para narrativa temprana). Se usa como DETECTOR de temas, jamás como señal de compra. Sus posts no pesan en el checklist.</td></tr>
+</table></div>
+</div></details>
+<details class="fold"><summary>🎯 Marcador de puntería — KPIs y detalle</summary><div class="inner"><div class="scorestrip">
+  <div><span class="k">Puntería</span><div class="v" style="color:var(--amber)">60%</div></div>
+  <div><span class="k">Aciertos</span><div class="v" style="color:var(--green)">6</div></div>
+  <div><span class="k">Errores</span><div class="v" style="color:var(--red)">4</div></div>
+  <div><span class="k">Abiertas</span><div class="v" style="color:var(--blue)">10</div></div>
+  <div><span class="k">Patrón de error</span><div class="v" style="font-size:12px;padding-top:6px;color:var(--mut)">momentum 4/4</div></div>
+</div>
+<div id="s-marcador" class="stitle">🎯 Marcador de Puntería — ¿cuánto le pegamos?</div>
+
+
+<details class="fold"><summary>📋 Detalle completo de llamadas (tabla histórica)</summary><div class="inner"><div class="note" style="margin-bottom:10px"><b>Regla de puntuación (definida en frío):</b> un COMPRAR acierta si el token supera <span class="nw">+20%</span> desde la llamada · un EVITAR acierta si NO supera <span class="nw">+20%</span> o cae · los ESPERAR/WATCHLIST se puntúan contra su banda (¿la dio o se escapó?) · las llamadas se cierran a los <span class="nw">14</span>días o al tocar umbral, lo que llegue primero. Los errores no se borran.</div>
+<div class="twrap"><table>
+<colgroup><col style="width:18%"><col style="width:26%"><col style="width:14%"><col style="width:24%"><col style="width:18%"></colgroup>
+<tr><th>Token y fecha de llamada</th><th>Veredicto emitido</th><th>¿Entramos?</th><th>Último dato y variación</th><th>Score</th></tr>
+<tr><td><b>MarsCoin</b></td><td><span class="nw">30</span>-ago · <span class="nw">$0.0424</span></td><td>COMPRAR zona ballena</td><td>SÍ (<span class="nw">$0.0417</span>)</td><td><span class="nw">$0.0457</span>(tocó <span class="nw">$0.0567</span>)</td><td class="hot"><span class="nw">+34%</span> al TP1</td><td class="ok">✓ ACIERTO</td></tr>
+<tr><td><b>牛来 (señal)</b></td><td><span class="nw">29</span>-ago · <span class="nw">$0.0566</span></td><td>Acumulación detectada</td><td>—</td><td><span class="nw">~$0.107</span>(tocó <span class="nw">$0.132</span>)</td><td class="hot"><span class="nw">+89%</span> a <span class="nw">+133%</span></td><td class="ok">✓ ACIERTO</td></tr>
+<tr><td><b>牛来 (entrada)</b></td><td><span class="nw">29</span>-ago · <span class="nw">$0.062</span></td><td>ESPERAR retroceso <span class="nw">$0.050–0.055</span></td><td>SÍ, contra regla (<span class="nw">$0.061</span>)</td><td>banda jamás tocada</td><td class="cool">se escapó</td><td class="open">◐ costo de disciplina</td></tr>
+<tr><td><b>TENDIES</b></td><td><span class="nw">30</span>-ago · <span class="nw">MC $23M</span></td><td>EVITAR (ballena vendiendo)</td><td>NO</td><td><span class="nw">MC $17.8M</span></td><td class="dead"><span class="nw">-23%</span></td><td class="ok">✓ ACIERTO</td></tr>
+<tr><td><b>microduck</b></td><td><span class="nw">29</span>-ago · <span class="nw">$0.0156</span></td><td>TARDE / no perseguir</td><td>NO</td><td><span class="nw">$0.0216</span>(<span class="nw">30</span>-ago)</td><td class="hot"><span class="nw">+38%</span></td><td class="ko">✗ ERROR</td></tr>
+<tr><td><b>BOW</b></td><td><span class="nw">30</span>-ago · <span class="nw">MC $4.1M</span></td><td>Degradado a observar</td><td>NO</td><td><span class="nw">MC $5.8M</span></td><td class="hot"><span class="nw">+41%</span></td><td class="ko">✗ ERROR (parcial)</td></tr>
+<tr><td><b>PENGU</b></td><td><span class="nw">29</span>-ago · <span class="nw">$0.00908</span></td><td>COMPRAR bajo ballena</td><td>SÍ (prom. <span class="nw">$0.0090</span>)</td><td><span class="nw">~$0.0089</span></td><td class="cool">plano</td><td class="open">◌ abierta</td></tr>
+<tr><td><b>AI</b></td><td><span class="nw">29</span>-ago · <span class="nw">MC ~$97M</span></td><td>EVITAR (salida de ballenas)</td><td>NO</td><td><span class="nw">MC ~$105M</span></td><td class="cool"><span class="nw">+8%</span></td><td class="open">◌ abierta (✓ si no supera <span class="nw">+20%</span> al <span class="nw">12</span>-sep)</td></tr>
+<tr><td><b>CATE</b></td><td><span class="nw">29</span>-ago · <span class="nw">$0.0447</span></td><td>EVITAR post-hype</td><td>NO</td><td>s/d fresco (Manu la lleva <span class="nw">-18%</span>)</td><td class="cool">≈ plano/abajo</td><td class="open">◌ abierta, ✓ provisional</td></tr>
+<tr><td><b>STONK</b></td><td><span class="nw">30</span>-ago · <span class="nw">MC $24M</span></td><td>EVITAR (distribución)</td><td>NO</td><td>s/d fresco</td><td>—</td><td class="open">◌ abierta</td></tr>
+<tr><td><b>CARDS</b></td><td><span class="nw">30</span>-ago · <span class="nw">$0.227</span></td><td>DESCARTADO (top10 <span class="nw">74%</span>)</td><td>NO</td><td>llamada estructural</td><td>—</td><td class="open">◌ abierta</td></tr>
+<tr><td><b>FOLD</b></td><td><span class="nw">30</span>-ago · <span class="nw">MC $112M</span></td><td>DESCARTADO (top10 <span class="nw">69%</span>)</td><td>NO</td><td>llamada estructural</td><td>—</td><td class="open">◌ abierta</td></tr>
+<tr><td><b>SPACEHOOD</b></td><td><span class="nw">30</span>-ago · <span class="nw">MC $1.7M</span></td><td>WATCHLIST condicional (<span class="nw">3</span>cond.)</td><td>NO</td><td>condiciones sin cumplir</td><td>—</td><td class="open">◌ abierta</td></tr>
+<tr><td><b>USELESS</b></td><td><span class="nw">30</span>-ago · <span class="nw">MC $70M</span></td><td>CANDIDATO · banda <span class="nw">$60–63M</span></td><td>NO (congelador)</td><td>banda no tocada (verif. 31-ago)</td><td>—</td><td class="open">◌ abierta</td></tr>
+<tr><td><b>Basecat</b></td><td><span class="nw">30</span>-ago · <span class="nw">MC $37M</span></td><td>CANDIDATO · banda <span class="nw">$26–30M</span></td><td>NO (regla <span class="nw">2</span>)</td><td>banda no tocada (verif. 31-ago)</td><td>—</td><td class="open">◌ abierta</td></tr>
+<tr><td><b>DELTA</b></td><td><span class="nw">30</span>-ago · <span class="nw">MC $29M</span></td><td>NO PERSEGUIR (vela <span class="nw">+74%</span>)</td><td>NO</td><td>s/d fresco</td><td>—</td><td class="open">◌ abierta</td></tr>
+<tr><td><b>NetNet</b></td><td><span class="nw">29</span>-ago · —</td><td>EVITAR (contrato modificable)</td><td>NO</td><td>llamada estructural</td><td>—</td><td class="open">◌ abierta</td></tr>
+<tr><td><b>Prologue</b></td><td><span class="nw">29</span>-ago · <span class="nw">+32%</span> ya corrido</td><td>MID-RUN, no entrada</td><td>NO</td><td>s/d fresco</td><td>—</td><td class="open">◌ abierta</td></tr>
+</table></div></div></details></div></details>
+<details class="fold"><summary>🏛 Checkpoint 7-sep — los $500 (gobernanza)</summary><div class="inner"><div id="s-gob" class="stitle">Checkpoint 7-sep — firmado 31-ago (los $500)</div>
+<div class="twrap"><table>
+<colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+<tr><th>Componente</th><th>Definición</th></tr>
+<tr><td><b>Qué decide</b></td><td>Si entran <span class="nw">$500</span> adicionales el 8-sep (adelanto parcial acordado EN FRÍO de la regla 7 — enmienda documentada, no ruptura en caliente).</td></tr>
+<tr><td><b>Criterio 1 · Ejecución</b></td><td>Al menos 2 eventos pendientes resueltos SEGÚN LO ESCRITO en la semana 1–7 sep (TP o stop de MarsCoin, entrada Basecat post-descongelamiento, 2º candidato regla-8), sin desvíos nuevos en el track record. Se mide obediencia a los mapas, no resultado.</td></tr>
+<tr><td><b>Criterio 2 · Puntería</b></td><td>Al 7-sep: ≥15 llamadas resueltas con puntería ≥55%, O errores concentrados solo en el sesgo momentum ya diagnosticado. Un tipo de error NUEVO = sistema no entendido = rojo.</td></tr>
+<tr><td><b>Criterio 3 · Régimen</b></td><td>BTC &gt; <span class="nw">$75,500</span> toda la semana y termómetro del casino sin derrumbe. No se agrega capital remando contra el tablero pre-Fed.</td></tr>
+<tr><td><b>Si 3 verdes</b></td><td>Entran <span class="nw">$500</span> en 2 tramos: <span class="nw">$250</span> el 8-sep + <span class="nw">$250</span> post-Fed (17-sep), asignación 50/30/20 del plan, reserva estructural 25%.</td></tr>
+<tr><td><b>Si 1+ roja</b></td><td>Los <span class="nw">$500</span> esperan al gate original del 19-sep. NO se rediscute el 10-sep "porque hubo un día bueno".</td></tr>
+<tr><td><b>Deberes de la semana</b></td><td>Escaneo diario · 1 llamada de puntería sin plata por día (al Marcador) · CERO compras fuera de sistema. Los $500 se los gana el sistema demostrando — no el aburrimiento negociando.</td></tr>
+</table></div>
+</div></details>
+<details class="fold"><summary>📜 Las 9 reglas</summary><div class="inner"><div id="s-reglas" class="stitle">Las 9 reglas</div>
+<div class="rules">
+  <li><span class="n">1</span>Stop y take-profit escritos ANTES de comprar. No se persigue lo que se movió.</li>
+  <li><span class="n">2</span>Nunca comprar la vela verde del día.</li>
+  <li><span class="n">3</span>En TP1 se vende la mitad. El resto corre gratis.</li>
+  <li><span class="n">4</span>Stop tocado = venta ejecutada. Sin negociar.</li>
+  <li><span class="n">5</span>BTC cierra &lt; $75,500 → todo lo especulativo se cierra ese día.</li>
+  <li><span class="n">6</span>Liquidez &lt; 2% del market cap → tamaño mínimo y salida escalonada.</li>
+  <li><span class="n">7</span><b>Regla de escalamiento (firmada 30-ago con la cabeza fría):</b> el capital de Pionex NO se toca antes del 19-sep. Solo se escala si para esa fecha: (1) PnL positivo neto de fees, (2) las reglas 1–6 cumplidas según el track record, (3) al menos una semana roja atravesada sin romper stops. Si se cumple: entrada en tramos, con tope definido como % del portafolio cripto total. Si no: los $300 fueron la matrícula y los bots nunca se enteraron. La euforia del día no vota.</li>
+  <li><span class="n">8</span><b>Entrada partida en señal confirmada (firmada 31-ago tras 3 escapadas: 牛来, Basecat, USELESS).</b> Solo con: ballena acumulando verificada + checklist limpio (top10 &lt;35%, liq &gt;2%, sin warning) + 48h de edad + reserva disponible. Ejecución: Tramo A = 50% al confirmar señal (nunca en vela &gt;+40% — la regla 2 manda); Tramo B = 50% en banda de retroceso. Sin retroceso, el tramo A ES la posición — no se completa arriba. Auditoría propia en el marcador: si en 10 trades el tramo A rinde peor que esperar banda, se deroga. <span class="new">NUEVA</span></li>
+  <li><span class="n">9</span><b>Protocolo de Sesiones (firmado 31-ago).</b> Tokens rápidos/volátiles: SOLO en sesión de trading declarada esa mañana (2–3 bloques semanales, agenda real). Fuera de sesión: solo gestión por alertas de posiciones lentas. Todo impulso fuera de sesión va a la Lista de Espera (se evalúa en la próxima sesión, no se ejecuta ni se pierde). Todo "me la perdí" va al Libro del FOMO del Marcador, con precio, y se audita a 7 días. Válvula: $10/semana de ruido, post-congelador. <span class="new">NUEVA</span></li>
+</div>
+
+</div></details>
+<details class="fold"><summary>📖 Análisis de posiciones — detalle y tesis</summary><div class="inner"><div class="stitle" style="margin-top:6px">▶ Jugadas del día — lo ejecutable</div>
+
+<div class="card hero">
+  <div class="head">
+    <div><div class="tname">MarsCoin</div><div class="tmeta">$0.0457 · MC $45.7M · plano · Vol $14.8M · Liq $821K</div></div>
+    <span class="badge b-buy">CICLO COMPLETO · DEJAR TRABAJAR</span>
+  </div>
+  <p class="story">Primer ciclo completo del experimento: compra en zona → TP1 a $53.5M → recompra con gatillo a $45.9M (banda $0.044–0.046 tocada + unipcs verificado sin vender a las 20:44). La ballena mantiene $984k invertidos con última compra al mediodía y la tesis "movimiento de Binance sobre MarsCoin" publicada. El fade nocturno (-16% desde el pico) es de toda la camada BNB, no del token. Posición 3.7K trabajando; nada que hacer salvo vigilar la salida forzosa.</p>
+  <div class="rail-wrap"><div class="rail-pad-top"></div>
+    <div class="rail">
+      <div class="zone" style="left:24%;width:22%"></div>
+      <div class="tick t-stop" style="left:13%"></div><div class="tick t-now" style="left:46%"></div>
+      <div class="tick t-tp" style="left:70%"></div><div class="tick t-tp" style="left:92%"></div>
+      <span class="lbl" style="left:13%"><b class="r">$0.034</b>stop</span>
+      <span class="lbl up" style="left:35%"><b class="g">$0.039–0.044</b>zona · MC 39–44M</span>
+      <span class="lbl" style="left:46%"><b class="w">$0.0457</b>ahora · MC 45.7M</span>
+      <span class="lbl up" style="left:70%"><b class="g">$0.057</b>TP1 mitad · MC 57M</span>
+      <span class="lbl" style="left:92%"><b class="g">$0.075</b>TP2 · MC 75M</span>
+    </div><div class="rail-pad"></div></div>
+  <p class="story" style="font-family:var(--mono);font-size:11.5px;color:var(--mut)">TP1 cobrado + recompra hecha<br>▸ Próximo TP1: $0.057 de nuevo (mitad)<br>▸ Salida forzosa: Sell de unipcs</p>
+</div>
+
+<div class="card">
+  <div class="head">
+    <div><div class="tname">Pudgy Penguins · PENGU</div><div class="tmeta">$0.00855–0.0089 · MC ~$685M · -6% · semana floja</div></div>
+    <span class="badge b-buy">ENTRADA VIGENTE</span>
+  </div>
+  <p class="story">Posición de José COMPLETA: 16.3K en 3 compras (prom. MC $710.7M — cada una más abajo, todas debajo del costo de ether_monk $735.4M). La ballena re-verificada 20:45: CERO ventas en 23 transacciones mientras liquidaba todo lo demás. Catalizador Schleich vigente. Es la posición lenta por diseño: el enemigo acá es el aburrimiento, no el precio. NO se agrega más — congelador y disciplina.</p>
+  <div class="rail-wrap"><div class="rail-pad-top"></div>
+    <div class="rail">
+      <div class="tick t-stop" style="left:15%"></div><div class="tick t-now" style="left:41%"></div>
+      <div class="tick t-tp" style="left:56%"></div><div class="tick t-tp" style="left:82%"></div>
+      <span class="lbl" style="left:15%"><b class="r">$0.0073</b>stop · MC ≈577M</span>
+      <span class="lbl up" style="left:41%"><b class="w">$0.0087</b>ahora · MC 689M</span>
+      <span class="lbl" style="left:56%"><b class="g">$0.0092</b>ballena · MC 735M</span>
+      <span class="lbl up" style="left:82%"><b class="g">$0.0127</b>TP1 mitad · MC ≈1.0B</span>
+    </div><div class="rail-pad"></div></div>
+  <p class="story" style="font-family:var(--mono);font-size:11.5px;color:var(--mut)">Tamaño $10–12<br>▸ Tras TP1: stop al breakeven</p>
+</div>
+
+<div class="card">
+  <div class="head">
+    <div><div class="tname">Evitar hoy</div><div class="tmeta">actualizado 21:00</div></div>
+    <span class="badge b-no">LISTA NEGRA</span>
+  </div>
+  <p class="story"><b>牛来</b> (post-catalizador, ether_monk realizó ~95% de su capital; la mitad de José ya es gratis) · <b>AI</b> (3 ballenas +672% a +15,631%) · <b>STONK</b> (ballena distribuyendo) · <b>CARDS</b> (top10 = 74%) · <b>NetNet</b> (contrato modificable) · <b>CATE</b> (post-hype; hasta Manu la tiene -18%) · <b>BOW</b> (unverified)</p>
+</div>
+
+
+
+</div></details>
+<details class="fold"><summary>🏰 Watchlist del clan (histórico)</summary><div class="inner"><div class="stitle">Watchlist del clan Fantom Troupe — ranking</div>
+<div class="twrap"><table>
+<colgroup><col style="width:4%"><col style="width:16%"><col style="width:14%"><col style="width:14%"><col style="width:52%"></colgroup>
+<tr><th>#</th><th>Token</th><th>Clan $ / PnL</th><th>Veredicto</th><th>Condición de entrada escrita</th></tr>
+<tr><td>1</td><td><b>USELESS</b><br><span style="color:#5A6373;font-family:var(--mono);font-size:10px">Solana · $70M MC · 1 año</span></td><td>$1.11M · +31%</td><td class="hot">CANDIDATO ★</td><td>La señal más limpia del barrido: unipcs compró $50k MÁS hoy 12:01 PM (a $66.1M MC), cero ventas, top10 27%, sobreviviente de 1 año. Entrada post-congelador: MC $60–63M con unipcs sin vender. Ojo: su tesis pública empuja su propia bolsa — pero la plata acompaña a la boca.</td></tr>
+<tr><td>2</td><td><b>Basecat</b><br><span style="color:#5A6373;font-family:var(--mono);font-size:10px">Base · $37M MC · 15 días</span></td><td>$670k · +36%</td><td class="hot">CANDIDATO (esperar)</td><td>El replay de 牛来: unipcs recibió $494k HOY 6:32 PM a $24.1M MC y el token hizo +99% en el día. Distribución excelente (top10 15.9%, 22K holders). NO se compra el día del doble — entrada solo en retroceso a MC $26–30M con unipcs entero.</td></tr>
+<tr><td>3</td><td><b>BOW</b><br><span style="color:#5A6373;font-family:var(--mono);font-size:10px">RH Chain · $5.8M MC</span></td><td>$177k · +56%</td><td class="cool">WATCH (sin cambios)</td><td>+62% hoy = regla 2. Sigue "Unverified" y liquidez finísima ($215k). Condiciones previas vigentes: verificación + retroceso. La tesis del clan ("la próxima de $100M") es narrativa, no dato.</td></tr>
+<tr><td>4</td><td><b>FOLD</b> (The Interfold)<br><span style="color:#5A6373;font-family:var(--mono);font-size:10px">Ethereum · $112M MC</span></td><td>$217k · -2.8%</td><td class="dead">DESCARTADO</td><td>Misterio resuelto: es un token nuevo de Ethereum (nada que ver con los FOLD viejos de la prensa). Top10 = <b>69.3%</b> — muere por concentración, igual que CARDS. Y el único del clan adentro (Rowdy) lo tradea ida y vuelta (13 buys/6 sells) y va perdiendo.</td></tr>
+<tr><td>5</td><td><b>TENDIES</b><br><span style="color:#5A6373;font-family:var(--mono);font-size:10px">RH Chain · $18M MC</span></td><td>$136k · +44%</td><td class="dead">DESCARTADO + LECCIÓN</td><td>Traderpow vendió $35k HOY en 5 tramos (MC cayendo $23M→$17.8M) mientras su tesis publicada sigue alcista. Tercera vez que lo vemos: <b>las tesis se leen con un ojo en las transacciones.</b></td></tr>
+<tr><td>—</td><td><b>Menores del filtro</b></td><td>JUGGERNAUT +34% · GG +40% · memestock +39% · Chonketha +8.6%</td><td class="open">RADAR</td><td>Pasaron el filtro numérico pero sin profundizar. Se revisan solo si reaparecen en un segundo barrido.</td></tr>
+</table></div>
+<div class="note"><b>Validación de paso:</b> MarsCoin es la posición "joven" #3 del clan entero (+16.8%, $1.13M) con unipcs comprando hasta hoy y cero etiquetas de advertencia — tu jugada del día quedó confirmada por 13 billeteras. Y el barrido cerró la pregunta FOLD del día sin gastar un dólar.</div>
+</div></details>
+<details class="fold"><summary>📰 Contexto del día</summary><div class="inner"><div class="stitle">Contexto del día</div>
+<div class="macro"><b>Macro:</b> memecoins desacoplados del miedo Fed (牛来 +72%, DELTA +74%) pero con liquidez al 1–2% del cap — las subidas son reales, las salidas serán un embudo. Evento binario: Fed 16-sep (~60% prob. de suba tras Jackson Hole). Detalle de la alerta: 10 ventas de ether_monk en 牛来 entre 5:36–5:44 AM a MC $92–110M (recuperó el 61% de su capital); en STONK, 4 ventas al 3x. PENGU no lo tocó.</div>
+</div></details>
+<details class="fold"><summary>🔬 Escaneo de momentum e inteligencia (detalle)</summary><div class="inner"><div id="s-intel" class="stitle">Escaneo nocturno 22:25 — estrenan las métricas de momentum</div>
+<div class="twrap"><table>
+<colgroup><col style="width:16%"><col style="width:20%"><col style="width:18%"><col style="width:46%"></colgroup>
+<tr><th>Token</th><th>Mínimos 1D</th><th>Ratio buyers/sellers</th><th>Lectura</th></tr>
+<tr><td><b>USELESS</b><br><span style="color:#5A6373;font-size:9.5px">$0.0895 · +28%</span></td><td class="cool">ASCENDENTES aplanándose</td><td>1.03</td><td><b>El más sano del grupo:</b> digestión del impulso sin distribución. La banda $60–63M quedó lejísimos — escapada consolidándose.</td></tr>
+<tr><td><b>MarsCoin</b><br><span style="color:#5A6373;font-size:9.5px">$0.0690 · +49%</span></td><td class="hot">ASCENDENTES + impulso vertical</td><td>0.92 · dinero +$0.4M neto comprador</td><td><b>Segundo mejor — y es tu posición:</b> más wallets vendiendo pero el dinero grande compra. A $6.3M del TP1 ($57M). Unipcs entero, 25 tx, cero ventas.</td></tr>
+<tr><td><b>PENGU</b><br><span style="color:#5A6373;font-size:9.5px">$0.00864 · -1.0%</span></td><td class="dead">DESCENDENTES — sin suelo</td><td class="dead">0.30 — dominio vendedor fuerte</td><td>Deriva sin convicción. La ballena quieta (cero ventas verificadas de nuevo). Es la lenta siendo lenta — sin acción requerida. Ojo: existe un PENGU FALSO (0x74be...4d625f) — verificar contrato siempre.</td></tr>
+<tr><td><b>microduck</b><br><span style="color:#5A6373;font-size:9.5px">$0.0155 · -21%</span></td><td class="cool">MIXTOS: doble suelo $0.0105–0.0108 + rebote</td><td>0.98</td><td>Estructura rota tras el pico; debajo de banda y cerca del stop de mapa ($0.0118). Sin entrada válida — ether_monk no agregó más.</td></tr>
+<tr><td><b>Basecat</b><br><span style="color:#5A6373;font-size:9.5px">$0.0287 · -15%</span></td><td class="dead">PLANOS con último mínimo MÁS BAJO ($23.8M, 03:30)</td><td class="dead">1.21 wallets PERO dinero vendedor ($4.0M vs $4.3M)</td><td><b>El veredicto del día — NO ENTRAR pese a banda tocada:</b> trampa de ratio (manos chicas entran, dinero grande sale). Unipcs 100% entero (1 sola tx: $494k recibidos a $24.1M, holder #1, &gt;2% del supply según su tesis) pero su colchón se achica. <b>Veredicto 1-sep: NO rehabilitada (1 de 3). Reevaluación: retroceso que respete $26M formando mínimo creciente + neto de dólares positivo. Divergencia anotada: 1.25x compradores minoristas vs dinero grande vendiendo.</b></td></tr>
+</table></div>
+<div class="note"><b>Las métricas nuevas pagaron el primer día:</b> sin la T2, "banda tocada + ballena entera" era luz verde en Basecat; con mínimos descendentes + dinero vendedor, es un cuchillo cayendo. El punto ciego de momentum ya tiene ojos — ahora también nos evita compras, no solo escapadas. <b>Radar de ballenas (T3):</b> ether_monk abrió PCC ($15k a $9.1M MC, entrada limpia, -11.5%) → watchlist liviana; su scalp de RAM (+48% en 15 min) no es nuestro juego. Unipcs y AJC: vendedores netos puros — cuando los grandes no compran, el congelador es posición, no castigo. <b>RICE: DESCARTADA sin apelación</b> — la versión listada en Fomo tiene 4 banderas rojas (Potential scam, liquidez 0% bloqueada, transfer pausable, unverified), top10 77.4%, cero ballenas, y el propio Fomo deshabilitó su trading. El calendario de catalizadores propone; los datos de la app disponen. <b>牛来 post-mortem final:</b> unipcs recortó $79.3k más en fuerza (conserva +113%); ether_monk DEJÓ de vender (9.9M, +168%) — el capítulo sigue siendo de ellos, ya no tuyo. <b>Marcador:</b> AI $0.150 (+70% hoy — el error crece) y SPACEHOOD $0.00784 (+356% — la escapada más dolorosa del experimento); PAIR -25% y STONK -24% engordan los aciertos. El patrón sigue idéntico: perfectos detectando distribución, ciegos al momentum comprador — la data nueva es el correctivo.</div>
+</div></details>
+
+<div class="note"><b>Auditoría de la tarde "del corazón" (3 movimientos, 3 notas):</b> recompra MarsCoin = 10 (gatillo del sistema ejecutado a la perfección) · 3ª compra PENGU = 6 (buen precio, mal proceso: la posición estaba declarada completa) · liquidación de reserva a $29 = el desvío estructural. Corrección en curso: congelador hasta cash ~$100, reconstruido con el próximo TP1. La reserva es una posición, no plata sobrante.</div>
+<div class="note" style="margin-bottom:10px"><b>Convención de niveles (definitiva):</b> en todos los mapas y tablas, el <b>PRECIO</b> va primero y grande — es lo que tipeás en la app — y el <b>MC</b> va al lado en chico — es el idioma en que la app registra a las ballenas. En los tokens de supply 1B (MarsCoin, 牛来, USELESS, Basecat, PAIR, microduck) son el mismo número sin ceros: $0.057 = MC 57M. <b>Excepción: PENGU</b> (supply ~79B) — ahí los dos números no se parecen y por eso siempre van ambos.</div>
+<details class="fold"><summary>🌡 Termómetro del casino (contexto macro del sector)</summary><div class="inner"><div class="stitle">Termómetro del casino — pump.fun (nuevo)</div>
+<div class="twrap"><table>
+<colgroup><col style="width:24%"><col style="width:40%"><col style="width:36%"></colgroup>
+<tr><th>Indicador</th><th>Dato</th><th>Lectura</th></tr>
+<tr><td><b>Fees semanales pump.fun</b></td><td>$10.03M (3–9 ago, récord histórico) · vol. $2.97B</td><td><span class="hot">APETITO ALTO</span></td></tr>
+<tr><td><b>Graduados (PumpSwap)</b></td><td>$411M vol. / 9.55M txs en 24h</td><td><span class="hot">CASINO LLENO</span></td></tr>
+<tr><td><b>PUMP (token)</b></td><td>+84% semanal por buybacks &gt;$1M/día × 3 días. Hyperliquid lo superó en fees el 23-ago</td><td><span class="cool">DUEÑO DEL CASINO</span><br><span style="color:#8B94A7">Acaba de correr — regla 2: esperar retroceso</span></td></tr>
+<tr><td><b>Guerra de plataformas</b></td><td>Pump.fun recluta traders de Fomo: $20k inicial + $30k/mes por migrar y cerrar cuenta</td><td><span class="open">VIGILAR</span><br><span style="color:#8B94A7">Si nuestras ballenas desaparecen de Fomo, es esto</span></td></tr>
+<tr><td><b>Regulación</b></td><td>California aprueba AB 2409: prohíbe memecoins de funcionarios públicos</td><td><span class="cool">VIENTO EN CONTRA</span><br><span style="color:#8B94A7">Para tokens de celebridades/políticos</span></td></tr>
+</table></div>
+<div class="note"><b>Límite del sensor:</b> pump.fun NO expone posiciones por trader como Fomo — nuestra ventaja informativa (ver qué acumulan las ballenas, con fechas) vive solo en Fomo. Pump.fun se usa de termómetro y radar pre-graduación (mirar, no comprar: zona de snipers, ~99% de mortalidad, advertencia FCA y demandas colectivas en EE.UU.).</div>
+<!-- ============ TABLERO DE NARRATIVAS ============ -->
+</div></details>
+<details class="fold"><summary>🧭 Tablero de narrativas + glosario de estados</summary><div class="inner"><div class="stitle">Tablero de narrativas — evolución</div>
+<div class="twrap"><table>
+<colgroup><col style="width:22%"><col style="width:11%"><col style="width:17%"><col style="width:50%"></colgroup>
+<tr><th>Narrativa</th><th>Detección</th><th>Estado</th><th>Evidencia hoy (30-ago)</th></tr>
+<tr><td><b>Memes chinos BNB</b><br>牛来, MarsCoin, 富贵</td><td>29-ago</td><td class="cool">DISTRIBUYENDO ▼</td><td>牛来 +72% pero ballena vendiendo; el relevo pasa a "el próximo runner" (MarsCoin). Fase madura: se juega la rotación, no el líder.</td></tr>
+<tr><td><b>Robótica / IA encarnada</b><br>microduck, HUGGY</td><td>29-ago</td><td class="hot">CALIENTE ▲</td><td>microduck #1 trending 2º día ($21.5M MC, +12%). Narrativa con noticia real detrás (robot HF 27-ago). Esperando el próximo catalizador/token.</td></tr>
+<tr><td><b>Marcas NFT (large-cap)</b><br>PENGU</td><td>29-ago</td><td class="hot">ACTIVÁNDOSE ▲</td><td>+0.5% → +5.0% entre escaneos; catalizador Schleich (retail Europa) de hace 1 día; ballena en DCA sin vender.</td></tr>
+<tr><td><b>Ecosistema Pons</b><br>PONS, PONSGUY, VAULT</td><td>29-ago</td><td class="cool">MADURO ▬</td><td>Presente en 5 de los top-8 con +120% a +6,166%. Motor del leaderboard, tarde para entrar. Se monitorea como sensor de régimen.</td></tr>
+<tr><td><b>Animales virales</b><br>CATE, MOO</td><td>29-ago</td><td class="cool">ENFRIANDO ▼</td><td>CATE en sangría post-pico (-30% desde máx.). MOO +1,029% en trending — coletazos, no tendencia.</td></tr>
+<tr><td><b>Fichas con flujo de caja</b><br>PUMP, ANSEM</td><td>30-ago</td><td class="hot">EMERGENTE ▲</td><td>PUMP +84% semanal (buybacks $1M/día). ANSEM llegó a $400M de cap con launchpad propio ($400k/sem de ingresos) y buyback del 10% del supply. Memecoins mutando a infraestructura con ingresos — la narrativa más "seria" del zoológico. Nota: DCE tenía ANSEM desde el primer screenshot.</td></tr>
+<tr><td><b>Rebase/tesorería</b><br>NetNet, DELTA</td><td>29-ago</td><td class="open">VIGILAR ▲</td><td>DELTA +74% ($29M MC) le da vida a la categoría "DeFi-meme" en Robinhood Chain. Riesgo estructural intacto (contratos modificables).</td></tr>
+</table></div>
+<div class="note" style="margin-top:10px"><b>Glosario de estados del tablero</b> — qué significa cada uno y qué se hace:<br><br>
+<span class="hot">EMERGENTE ▲</span> — La narrativa recién nace: pocos tokens, poca prensa, primeras ballenas entrando. Es la fase de mayor asimetría y mayor mortalidad. <i>Se hace:</i> semillas chicas en el mejor exponente, nunca posición plena.<br><br>
+<span class="hot">CALIENTE ▲</span> — Atención y plata entrando en masa; los tokens del tema suben en manada y cada noticia pare uno nuevo. <i>Se hace:</i> operar solo con banda de entrada escrita — acá viven las velas verticales de la regla 2.<br><br>
+<span class="hot">ACTIVÁNDOSE ▲</span> — Estuvo dormida y muestra primeras señales de despertar (volumen, un catalizador, una ballena acumulando). <i>Se hace:</i> es el mejor momento para construir posición con calma, tipo PENGU.<br><br>
+<span class="cool">MADURO ▬</span> — La narrativa ya hizo su gran corrida; los ganadores están definidos y con múltiplos enormes. Puede seguir dando, pero el riesgo/retorno se acható. <i>Se hace:</i> no se abren posiciones nuevas; se usa como sensor de apetito del mercado.<br><br>
+<span class="cool">ENFRIANDO ▼</span> — La atención se va: menos volumen, holders cayendo, los tokens del tema sangran lento. <i>Se hace:</i> nada de compras "porque está barato" — barato puede ser el camino a muerto.<br><br>
+<span class="cool">DISTRIBUYENDO ▼</span> — El estado más traicionero: el precio todavía está ALTO y hasta sube, pero las ballenas están vendiendo en tramos contra la demanda que llega tarde. Es la fase 牛来/ether_monk. <i>Se hace:</i> prohibido comprar; si hay posición, se ejecutan las salidas escalonadas.<br><br>
+<span class="open">VIGILAR ▲</span> — Algo cambió (un dato, un movimiento) pero falta confirmación para clasificarla. <i>Se hace:</i> se pide el dato que falta en el próximo escaneo, sin operar.<br><br>
+El ciclo típico completo: EMERGENTE → CALIENTE → DISTRIBUYENDO → ENFRIANDO (→ a veces renace). La plata grande se hace entrando en las dos primeras y saliendo en la tercera — la plata se pierde comprando en la tercera creyendo que es la segunda.</div>
+
+<!-- ============ TRACK RECORD ============ -->
+</div></details>
+<div class="stitle">Track record — bitácora completa</div><details class="fold"><summary>🗂 Bitácora cronológica (crece cada día — abrir solo para auditar)</summary><div class="inner">
+<div class="twrap"><table>
+<colgroup><col style="width:8%"><col style="width:11%"><col style="width:30%"><col style="width:10%"><col style="width:29%"><col style="width:12%"></colgroup>
+<tr><th>Fecha</th><th>Activo</th><th>Llamada</th><th>Ref.</th><th>Resultado al 30-ago 08:15</th><th>Score</th></tr>
+<tr><td>29-ago</td><td><b>牛来</b></td><td>Señal de acumulación detectada (unipcs + ether_monk comprando)</td><td>$0.0566</td><td>$0.0937 (+66%) al día siguiente. La señal fue correcta.</td><td class="ok">✓</td></tr>
+<tr><td>29-ago</td><td><b>牛来</b></td><td>"Solo comprar en retroceso a $0.050–0.055"</td><td>$0.062</td><td>Nunca retrocedió; se fue sin nosotros. Costo de la disciplina: -50% de upside no capturado. Se acepta: la regla evita comprar techos.</td><td class="open">◐ costo asumido</td></tr>
+<tr><td>29-ago</td><td><b>AI</b></td><td>EVITAR — ballenas +737% a +15,631% concentradas necesitan salida</td><td>MC ~$97M</td><td>MC $104.8M (+8%). Aún no colapsa. Si en 30 días no colapsó, se anota error.</td><td class="open">◌ abierta</td></tr>
+<tr><td>29-ago</td><td><b>microduck</b></td><td>TARDE — no perseguir a $0.0156 (6x sobre la ballena)</td><td>$0.0156</td><td>$0.0216 (+38% más). Por ahora la llamada CUESTA plata. Honestidad: el momentum sigue; la regla se evalúa en expectativa, no en un caso.</td><td class="ko">✗ parcial</td></tr>
+<tr><td>29-ago</td><td><b>CATE</b></td><td>EVITAR — sangría post-hype</td><td>$0.0447</td><td>Unipcs la cerró con pérdida el 24-ago (dato confirmado después). Sin precio nuevo — pendiente en próximo escaneo.</td><td class="open">◌ abierta</td></tr>
+<tr><td>30-ago</td><td><b>MarsCoin</b></td><td>JUGADA DEL DÍA — comprar en zona ballena $0.039–0.044</td><td>$0.0424</td><td>En zona, plan activo. Sin ejecución del usuario aún.</td><td class="open">◌ activa</td></tr>
+<tr><td>30-ago</td><td><b>PENGU</b></td><td>Entrada a mercado bajo costo de ballena</td><td>$0.00910</td><td>+5% intradía y acelerando. Plan activo.</td><td class="open">◌ activa</td></tr>
+<tr><td>30-ago</td><td><b>STONK</b></td><td>EVITAR — ballena distribuyendo al 3x</td><td>MC $24M</td><td>Sin ventas nuevas después de las 6:36 AM. Abierta.</td><td class="open">◌ abierta</td></tr>
+<tr><td>30-ago</td><td><b>CARDS</b></td><td>DESCARTADO — top 10 holders 74.45%</td><td>$0.227</td><td>Llamada estructural (riesgo), no de precio. Se evalúa a 30 días.</td><td class="open">◌ abierta</td></tr>
+<tr><td>30-ago</td><td><b>PUMP</b></td><td>Watchlist "dueño del casino" — NO comprar tras +84% semanal; esperar retroceso</td><td>~$0.0051</td><td>Anotada al detectarla. Se evalúa si da entrada en corrección.</td><td class="open">◌ activa</td></tr>
+<tr><td>30-ago</td><td><b>MarsCoin</b></td><td>TP1 ejecutado por José: venta del 50% a ~$0.0567 (~$146 realizados, ~+36%)</td><td>$0.0567</td><td>Primera ganancia realizada del experimento. El resto +28.6% con stop en breakeven. Además unipcs compró $99.6k más hoy → tesis reforzada.</td><td class="ok">✓ realizado</td></tr>
+<tr><td>30-ago</td><td><b>牛来</b></td><td>Detección temprana del catalizador: la tesis de "primer memecoin del ciclo en listar futuros de Binance" se registró a las 07:45</td><td>MC $92.8M</td><td>Binance listó perps horas después; MC $116M (+25% desde el registro). Señal de narrativa correcta — no operada por regla 2.</td><td class="ok">✓ señal</td></tr>
+<tr><td>30-ago</td><td><b>牛来</b></td><td>Orden de vender 50% de la posición de José (asegurar el trade anti-regla-2)</td><td>$0.132</td><td>Ejecución FALLIDA por la app (2 intentos). Pendiente con protocolo nuevo: warning del token + web con cuenta correcta + tramos. La regla 6 cobró vida propia.</td><td class="open">◐ pendiente</td></tr>
+<tr><td>30-ago</td><td><b>牛来</b></td><td>Venta del 50% completada al 3er intento (~$23 = capital total recuperado)</td><td>~$0.12</td><td>Posición restante 100% gratis. El trade anti-regla-2 cierra ganador y sin riesgo.</td><td class="ok">✓ realizado</td></tr>
+<tr><td>30-ago</td><td><b>MarsCoin</b></td><td>Gatillo de recompra ejecutado: $58 a MC $45.9M (banda $0.044–0.046 + unipcs sin vender, verificado 20:44)</td><td>$0.0459</td><td>Primer ciclo completo del experimento (compra→TP1→recompra). El sistema operó solo.</td><td class="ok">✓ sistema</td></tr>
+<tr><td>30-ago</td><td><b>PENGU</b></td><td>3ª compra ($28.71 a MC $684M) — DESVÍO: la posición estaba declarada completa</td><td>$0.0089</td><td>Buen precio, mal proceso. Anotado sin excusas: los desvíos lindos también cuentan.</td><td class="ko">✗ desvío</td></tr>
+<tr><td>30-ago</td><td><b>Reserva</b></td><td>DESVÍO estructural: cash de $156 → $29 en una tarde (incl. venta del SOL de núcleo)</td><td>—</td><td>Congelador de compras activado hasta reconstruir ~$100 con el próximo TP. La reserva es una posición.</td><td class="ko">✗ desvío</td></tr>
+<tr><td>30-ago</td><td><b>SPACEHOOD</b></td><td>Análisis a pedido → watchlist condicional, NO compra (cero ballenas top-10, post-pump -24%, pareo sin confirmar)</td><td>MC $1.7M</td><td>Tres condiciones escritas para ascenso. Se evalúa contra ellas, no contra el precio de mañana.</td><td class="open">◌ activa</td></tr>
+<tr><td>30-ago</td><td><b>FOLD</b></td><td>Investigación a pedido → DESCARTADO (top10 69.3%, Rowdy único holder del clan, en rojo y rotando)</td><td>MC $112M</td><td>Resuelto en el mismo día vía barrido del clan. Segunda eliminación por concentración (tras CARDS).</td><td class="ok">✓ estructural</td></tr>
+<tr><td>30-ago</td><td><b>USELESS</b></td><td>Asciende a candidato #1 de watchlist: unipcs agregó $50k hoy, cero ventas, banda de entrada $60–63M MC escrita</td><td>$0.070</td><td>Solo ejecutable post-congelador. Se mide contra la banda, no contra el FOMO.</td><td class="open">◌ activa</td></tr>
+<tr><td>30-ago</td><td><b>Basecat</b></td><td>Watchlist con condición dura: retroceso a MC $26–30M (unipcs recibió $494k hoy a $24.1M; token +99% en el día = no tocar)</td><td>$0.037</td><td>El test de si aprendimos de 牛来: misma configuración, esta vez con la banda escrita ANTES.</td><td class="open">◌ activa</td></tr>
+<tr><td>31-ago</td><td><b>USELESS</b></td><td>3ª escapada del patrón: candidato #1 correcto (llamada a MC $70M con unipcs comprando), banda $60–63M jamás tocada, corrió a $79.6M (+22% día)</td><td>MC $70M</td><td>Señal ✓, captura 0 por diseño de entrada. Gatilla la revisión estructural.</td><td class="ok">✓ señal / ✗ diseño</td></tr>
+<tr><td>31-ago</td><td><b>Sistema</b></td><td>REGLA 8 firmada: entrada partida 50/50 (señal + banda) para candidatos con acumulación verificada. Nace de 3 casos — se audita sola: 10 trades o derogación</td><td>—</td><td>Primer caso previsto: PAIR (1-sep, si cumple 48h y hay reserva). El congelador sigue mandando.</td><td class="open">◌ en auditoría</td></tr>
+<tr><td>31-ago</td><td><b>牛来</b></td><td>SALIDA FORZOSA ejecutada: unipcs vendió (1:28 PM, MC $115.3M) → José cerró el 100% a la 1:39 PM (MC $110M)</td><td>$0.110</td><td>Trade completo: $45.14 → $80.51 (+77.48%, +$34.98). Entrada prom. $58.6M, salida prom. $104.6M. Once minutos entre la señal de la ballena y la ejecución.</td><td class="ok">✓ CICLO CERRADO</td></tr>
+<tr><td>1-sep 3:39</td><td><b>MarsCoin</b></td><td>TP1 ejecutado: mitad vendida (1.8K a $0.0555, 97% del nivel $0.057) por alerta nocturna — $104.54 realizados</td><td>$0.0555</td><td>2º ciclo con TP realizado. Cash $154.24 → CONGELADOR LEVANTADO. Checkpoint 7-sep: evento 1 de 2 ✓ según mapa. Resto 1.8K con stop breakeven $0.043 y TP2 $0.075.</td><td class="ok">✓ SISTEMA</td></tr>
+<tr><td>1-sep 06:05</td><td><b>Rabbit</b></td><td>RADAR: unipcs abrió posición a las 02:05 ($83.5k Received a $3.8M MC + compra a $6.8M) — ya +170%, tesis publicada, clan FT rotando detrás (traderpow en cadena $13–15M MC)</td><td>MC ~$10M</td><td>Ficha completa 6:37: estructura EXCELENTE (top10 14.3%, liq 8.3%) pero 14h de vida (regla 8 exige 48h), DOBLE etiqueta Unverified, -43% desde el pico y dinero neto saliendo. Watchlist con condiciones: 48h (2-sep ~16:30) + ambas ballenas sin vender + MC >$7M + dinero neto positivo → recién ahí, tramo A $10 máx.</td><td class="open">◌ watchlist condicionada</td></tr>
+<tr><td>1-sep</td><td><b>Checkpoint</b></td><td>DÍA 1: evento 1/2 ✓ (TP1 MarsCoin según mapa). Pendientes del operador: declarar sesión + 1ª llamada de puntería</td><td>—</td><td>BTC sobre $75,500 ✓. El marcador espera las llamadas diarias de José.</td><td class="open">◌ día 1 de 7</td></tr>
+<tr><td>1-sep 6:19</td><td><b>microduck</b></td><td>Entrada regla-banda ejecutada EN SESIÓN: $17.90 en 2 tramos a $14.6M MC (banda $13–15M, junto a ether_monk $14.9M)</td><td>$0.0146</td><td>Stop $0.0118 · TP1 $0.022 · Forzosa: Sell de ether_monk. Desvío menor: tamaño 50% sobre mapa ($17.90 vs $10–12) — anotado.</td><td class="ok">✓ sistema (desvío menor)</td></tr>
+<tr><td>1-sep 7:30</td><td><b>PCC</b></td><td>🎯 LLAMADA DE PUNTERÍA #1 DE JOSÉ (sin plata): SUBE en 7 días — ref. $0.00816 / MC $8.1M</td><td>$0.00816</td><td>Resuelve 8-sep: ✓ si supera +20% ($0.0098). Contexto al momento: ether_monk con sonda -10%, top10 12.8%, flujo levemente comprador. Primera fila del criterio 2 del checkpoint.</td><td class="open">◌ resuelve 8-sep</td></tr>
+<tr><td>1-sep 14:44</td><td><b>FRONG</b></td><td>DESCARTADO pese a flujo comprador positivo: CERO ballenas en las 4 carteras revisadas completas (86+84+35+16 posiciones)</td><td>MC $5.7M</td><td>La lección SPACEHOOD aplicada a tiempo y por proceso: condición verificada ANTES de que la vela decida por nosotros. Entra a la cohorte lotería para auditar el costo del filtro.</td><td class="ok">✓ estructural</td></tr>
+<tr><td>1-sep 14:42</td><td><b>Rabbit</b></td><td>Condiciones re-verificadas: MC $5.6M &lt; $7M (falla) · unipcs agregó $998 · traderpow promediando a la baja agresivo (4 compras hace 42 min, -47%)</td><td>MC $5.6M</td><td>48h se cumplen mañana ~16:40. Si el MC no recupera $7M, no hay trade por más ballenas que acumulen — el umbral existe porque el colapso de PAIR también tenía ballenas.</td><td class="open">◌ decide mañana</td></tr>
+<tr><td>1-sep 6:25</td><td><b>MarsCoin</b></td><td>TP2 ejecutado en 2ª aproximación tras mecha perdida en $0.0768: $67.74 a $71.9M MC</td><td>$0.0719</td><td>Trade redondo: $306.55 realizados / $266.46 invertidos + moon bag $70 gratis. Lección: alertas 2–3% ANTES del nivel. Stop del moon bag sube a $0.057.</td><td class="ok">✓ TP2</td></tr>
+<tr><td><b>AI</b><br><span style="color:#5A6373;font-size:9.5px">act. 31-ago 18:31</span></td><td>EVITAR (29-ago, MC $97M)</td><td>NO</td><td>MC $127.7M (+45% hoy)<br><span class="hot">+31.6% desde llamada</span></td><td><span class="ko">✗ ERROR</span> <span style="color:#5A6373;font-size:9px">(superó el umbral +20%; la tesis de salida de ballenas aún no ocurre — 4º error, mismo patrón)</span></td></tr>
+<tr><td><b>SPACEHOOD</b><br><span style="color:#5A6373;font-size:9.5px">act. 31-ago</span></td><td>Watchlist condicional (cond. nunca cumplidas)</td><td>NO</td><td>$0.00485 (+141% hoy)<br><span class="hot">+180% desde llamada</span></td><td><span class="ko">✗ escapada</span> <span style="color:#5A6373;font-size:9px">(4ª del patrón momentum)</span></td></tr>
+<tr><td><b>STONK</b><br><span style="color:#5A6373;font-size:9.5px">act. 31-ago</span></td><td>EVITAR (30-ago, MC $24M)</td><td>NO</td><td>MC $15.8M<br><span class="dead">-34%</span></td><td><span class="ok">✓ ACIERTO</span></td></tr>
+<tr><td><b>DELTA</b><br><span style="color:#5A6373;font-size:9.5px">act. 31-ago</span></td><td>NO PERSEGUIR (30-ago, MC $29M)</td><td>NO</td><td>MC $17.5M<br><span class="dead">-40%</span></td><td><span class="ok">✓ ACIERTO</span></td></tr>
+<tr><td><b>PAIR</b><br><span style="color:#5A6373;font-size:9.5px">act. 31-ago</span></td><td>Condiciones regla 8 (48h + cap &gt;$5M)</td><td>NO — condiciones fallaron</td><td>MC $3.5M (-43% hoy) · unipcs vendió<br><span class="dead">evitado gratis</span></td><td><span class="ok">✓ FILTRO FUNCIONÓ</span></td></tr>
+<tr><td><b>Basecat</b><br><span style="color:#5A6373;font-size:9.5px">act. 31-ago 18:31</span></td><td>Banda $26–30M escrita el 30-ago</td><td>NO (congelador + unipcs sin verificar)</td><td>MC $29.5M — <b>EN BANDA y aguantando</b></td><td><span class="ok">✓ LA BANDA LLEGÓ</span> <span style="color:#5A6373;font-size:9px">(1ª que vuelve — ejecución pendiente de descongelar)</span></td></tr>
+</table></div></div></details>
+
+<div class="note"><b>Regla del track record:</b> las llamadas se anotan el día que se hacen, con precio de referencia, y NUNCA se editan — solo se les agrega resultado. Los errores se dejan a la vista (como microduck hoy). Es lo contrario de lo que hacen las tesis de Fomo, y si esto algún día es público, va a ser la diferencia entre nosotros y un shill más.</div>
+
+<div class="note"><b>PUNTERÍA AL 31-AGO (resueltas: 10):</b> <span class="ok">6 aciertos</span> (MarsCoin, 牛来 señal, TENDIES, STONK, DELTA, filtro-PAIR) · <span class="ko">4 errores</span> (microduck, BOW, AI, SPACEHOOD — LOS CUATRO del mismo tipo: subestimar momentum comprador) · 60% de puntería. <b>Diagnóstico afinado:</b> el sistema detecta DISTRIBUCIÓN casi perfecto (6/6 en ballenas vendiendo y estructuras rotas) y falla sistemáticamente en MOMENTUM (0/4 en cosas que "ya corrieron" y siguieron). La regla 8 es la respuesta — su primer candidato (PAIR) falló condiciones correctamente; el próximo dirá si corrige el sesgo</div>
+
+
+<details class="fold"><summary>🏗 Plan de Escalamiento 19-sep (se activa tras el gate)</summary><div class="inner"><div class="stitle">Plan de Escalamiento — firmado 31-ago, ejecuta 19-sep</div>
+<div class="twrap"><table>
+<colgroup><col style="width:22%"><col style="width:78%"></colgroup>
+<tr><th>Componente</th><th>Definición (escrita en frío — la euforia del día no vota)</th></tr>
+<tr><td><b>Capital fuente</b></td><td>Ganancias/capital del bot BTC de Pionex (~<span class="nw">$690</span>: <span class="nw">$556.78</span> + <span class="nw">$133.68</span> de ganancia). Si José decide cosecharlo antes, queda en USDT DENTRO de Pionex hasta el 19-sep. La regla 7 gobierna el último metro, no la administración de Pionex.</td></tr>
+<tr><td><b>El gate (19-sep)</b></td><td>Se verifica contra el Marcador, no contra la sensación: (1) PnL positivo neto de fees desde el inicio, (2) reglas 1–8 cumplidas según track record (desvíos documentados no descalifican si fueron corregidos), (3) al menos una semana roja atravesada sin romper stops. <b>Las 3 o nada.</b> Si falla una: se reevalúa el 3-oct, sin excepción intermedia.</td></tr>
+<tr><td><b>Tope duro</b></td><td>Memecoins ≤ <b>12% del stack cripto total</b> de José (a calcular con el total real de Pionex + Fomo el 19-sep). Si los <span class="nw">$690</span> exceden ese 12%, entra solo hasta el tope y el resto se queda en USDT/BTC. El núcleo del patrimonio jamás juega en la punta especulativa.</td></tr>
+<tr><td><b>Entrada en tramos</b></td><td>3 tramos semanales de ~<span class="nw">$230</span> (19-sep, 26-sep, 3-oct). El tramo 2 y 3 solo entran si el anterior no rompió stops. Nunca todo junto, nunca en día de vela verde general.</td></tr>
+<tr><td><b>Asignación por tramo</b></td><td><b>50% núcleo lento</b> (tipo PENGU: marca real, ballena DCA, stop -20%) · <b>30% señales regla-8</b> (acumulación verificada, entrada partida 50/50) · <b>20% bandas de retroceso</b> (mapas tipo USELESS/Basecat). La reserva mínima permanente sube a <b>25% del capital meme</b> — el congelador se vuelve estructural, no castigo.</td></tr>
+<tr><td><b>Tamaños nueva escala</b></td><td>Semilla: <span class="nw">$25–35</span> · Posición plena: <span class="nw">$70–100</span> · Máximo por token: 20% del portafolio meme · Máximo por narrativa: 35%. Mismas 8 reglas, mismos mapas, mismos TPs — solo cambia el tamaño del billete.</td></tr>
+<tr><td><b>Kill-switch</b></td><td>Si el capital escalado cae -30% desde el arranque: se liquida todo lo especulativo, se vuelve a la escala <span class="nw">$300</span>, y el experimento grande se declara fallido con autopsia en el Marcador. Sin segunda oportunidad inmediata — la próxima ventana sería 2027.</td></tr>
+<tr><td><b>Qué NO cambia</b></td><td>La regla maestra de BTC <span class="nw">$75,500</span> · la regla 2 (velas verticales) · la salida forzosa por Sell de ballena · el Marcador puntuando cada llamada · los bots restantes de Pionex y el BTC de largo plazo: intocables, son el motor lento que financia al rápido.</td></tr>
+</table></div>
+<div class="note"><b>Espíritu del plan:</b> convertir la ambición de hoy en ejecución de septiembre. Si el sistema aprueba su examen, escala con estructura de portafolio profesional — no con transferencias de madrugada. Si no aprueba, los <span class="nw">$300</span> fueron la matrícula, el bot nunca se enteró, y la lección costó 40 veces menos que aprenderla con <span class="nw">$690</span>. Firmado con el mercado abierto y la cabeza fría, 31-ago-2026.</div>
+</div></details>
+<details class="fold"><summary>🗄 Archivo de ediciones (v1 → v15)</summary><div class="inner"><div class="row"><b>v15 · 31-ago noche / 1-sep madrugada</b> — Métricas de momentum estrenadas (vetaron Basecat pese a banda tocada). RICE descartada. TP1 MarsCoin ejecutado 3:39 AM ($104.54) → congelador LEVANTADO (cash $154). Rediseño completo del dash (índice, colapsables, desktop).</div>
+<div class="arch">
+  <div class="row"><b>v14 · 31-ago tarde</b> — Rotación BNB→Solana/AI detectada. PAIR cancelado por condiciones (filtro regla 8 ✓ gratis). Basecat tocó banda. Marcador a n=10 (60%; sesgo momentum confirmado). Checkpoint 7-sep y reglas 8–9 firmados. 牛来 cerrada +77.5%.</div>
+  <div class="row"><b>v11 · 30-ago noche</b> — Estreno del Marcador de Puntería (60% con n=5; patrón de error: subestimar momentum). Mapas de USELESS y Basecat. Glosario de narrativas. Formato de tablas corregido.</div>
+  <div class="row"><b>v10 · 30-ago noche</b> — Barrido del clan Fantom Troupe (199 tenencias → 2 candidatos: USELESS y Basecat con bandas escritas; FOLD y TENDIES descartados). Señal de régimen: feed del clan 100% ventas. Regla 7 puesta a prueba y sostenida el mismo día de su firma.</div>
+  <div class="row"><b>v9 · 30-ago noche</b> — Cierre día 2: ciclo completo MarsCoin, congelador activado (cash $29), SPACEHOOD a watchlist condicional, 2 desvíos documentados. Cartera $362 (+20.8%).</div>
+  <div class="row"><b>v8 · 30-ago tarde</b> — Binance listó perps de 牛来 (catalizador registrado 9h antes ✓). Ether_monk realizó ~$619k. Unipcs recompró $99.6k de MarsCoin y nombró su catalizador. Sesión web corregida a @jlh87. Radiografía de Manu Terrones (@KmanuS88): siembra $99, cosecha en fuerza, pierde cuando se queda.</div>
+  <div class="row"><b>v7 · 30-ago mediodía</b> — Cartera real de José al frente del dash ($335→$396). TP1 de MarsCoin ejecutado. Fallo de venta en 牛来 (liquidez fina en vivo). Regla 7 de escalamiento firmada: Pionex intocable hasta 19-sep con 3 condiciones.</div>
+  <div class="row"><b>v7 · 30-ago 9:22</b> — Primeras ejecuciones reales de José: MarsCoin $215.76 y PENGU $80.24 según plan; 牛来 $39.56 comprada en vela verde (+68%, desvío anotado). Total $335.56 sobre $300 depositados (+11.9%). Flag: cash $0.</div>
+  <div class="row"><b>v5 · 30-ago mediodía</b> — Reestructura: jugadas del día pasan a abrir el reporte. Se suma pump.fun como capa de análisis: termómetro del casino, guerra de plataformas (poaching de traders Fomo), narrativa emergente "fichas con flujo de caja" (PUMP/ANSEM).</div>
+  <div class="row"><b>v3 · 30-ago 08:15</b> — Alerta de distribución: ether_monk vende $397k de 牛来 y $85k de STONK. CARDS eliminado (top10 74%). Cañería de graduados vacía (197 filas, 0 sobrevivientes 2–7d &gt;$1M). MarsCoin más barata en zona.</div>
+  <div class="row"><b>v2 · 30-ago 07:49</b> — Primer escaneo Chrome. Fechas de acumulación confirmadas: MarsCoin (unipcs, 27–28 ago) y PENGU (ether_monk, DCA 22–27 ago). 牛来 se escapa +66% overnight. Nace la regla 6 (liquidez &lt;2% del cap). Radiografía de bluntz, AJC y Chubbicorn.</div>
+  <div class="row"><b>v1 · 29-ago noche</b> — Primera edición. Jugada: 牛来 en retroceso. PENGU entrada. Trampas: AI, NetNet. Tarde: microduck, CATE. Nace el reparto de $100 y las 5 reglas. Base: 4 videos de la app + investigación de prensa.</div>
+</div>
+
+<!-- ============ RULES ============ -->
+</div></details>
+<div class="foot">
+  v24 · 1-sep 22:45 · Corrida B nocturna: SAYLORMOON asciende (doble señal) · Wood NO asciende · LUCIA corregida del experimento Fomo (día 2). Datos: escaneos propios vía Claude en Chrome + videos de la app + prensa cripto, con timestamps en cada sección. Análisis educativo y registro personal — no es asesoría financiera ni recomendación para terceros. Los memecoins pueden perder el 100% de su valor en horas.
+</div>
+
+</body>
+</html>
