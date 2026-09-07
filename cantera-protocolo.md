@@ -75,3 +75,30 @@ Dos observaciones de la primera camada, anotadas antes de que el sesgo retrospec
 - **Apareció un copycat de `fone`** — nuestro mapa 9, muerto ayer por stop estructural — a
   $203.3K. Los copycats brotan cuando el original muere. Es una señal de tope de narrativa,
   no una oportunidad.
+
+## Revisión día 3 de la primera cosecha — 7-sep 10:05
+
+**Resultado: 20 de 20 en `baja`.** Los 10 copycats por veto del día 0; los 10 sobrevivientes
+(shuvon, UNICORN, SAAR, MEH, SQUEEZE, BUBBLE, kuan, HOVER, BONZI, AGI) porque **ninguno aparece
+en el buscador de fomo al tercer día** — búsqueda exacta por nombre en la pestaña Tokens,
+uno por uno, 10:00–10:05. HOVER tenía $1.1M de MC y $2.5M de volumen el día 0; tres días
+después no está indexado. Se toma como muerte operativa (sin actividad indexable), no como
+MC cero verificado.
+
+**La hipótesis del día 0 no se pudo testear:** SQUEEZE (el contenido) y AGI (el rojo) tampoco
+aparecen. No hay diferencia observable entre velas verticales y no-velas: murió todo.
+
+**Tasa de mortalidad de la cosecha 4-sep: 100% (n=20) al día 3.** Es el primer número del
+instrumento y es el que importa: los graduados de fomo en RH no viven 72 horas.
+
+**Corrección al protocolo (vale desde hoy):** el día 0 tiene que guardar el **contrato** de
+cada token (dirección completa), no solo el nombre. Sin contrato, un token que sale del
+índice de búsqueda no tiene ficha que abrir, y la revisión del día 3 queda ciega. Costo: un
+clic más por fila.
+
+**Cosecha día 0 del 7-sep: ninguna.** La lista Graduated volvió a devolver cero tokens
+(octava lectura vacía consecutiva; verificado 10:05 con "Most held" cargando normal en el
+mismo panel). Mientras Graduated siga vacía, el embudo no tiene entrada y la condición de
+arranque de la enmienda 3 (≥10 tokens con 7 días de seguimiento) no se cumple el 11-sep.
+Alternativa a evaluar en el checkpoint: alimentar el día 0 desde "Bonding" o desde los
+graduados que aparecen en Trending con edad <24h.
