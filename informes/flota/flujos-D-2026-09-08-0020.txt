@@ -1,0 +1,91 @@
+FLUJOS-D — puentes, OTHERS/BTC y pares — 07-09-2026 23:53 (UTC-3)
+
+1. D1 — PUENTES (DefiLlama, defillama.com/bridges)
+
+1.1 Neto por cadena, 24h (vista "Net Flows By Chain", toggle Day; fecha de los datos: 07 Sep 2026 según la propia plataforma):
+- Ethereum: entrante $494.18M, saliente $439.30M, neto +$54.88M (dato de depósitos/retiros, hora lectura 23:37 UTC-3). Neto agregado del panel "Net Flows By Chain" (día): +$33.78M (cifra ligeramente distinta por metodología del panel agregado, ver nota metodológica).
+- BNB Chain (BSC): entrante $45.55M, saliente $35.05M, neto +$10.50M (depósitos/retiros, 23:41 UTC-3). Panel agregado (día): +$9.42M.
+- Solana: entrante $33.03M, saliente $27.51M, neto +$5.52M (depósitos/retiros, 23:43 UTC-3). Panel agregado (día): +$6.43M.
+- Base: entrante $47.24M, saliente $46.17M, neto +$1.07M (depósitos/retiros, 23:45 UTC-3). Panel agregado (día): +$5.78M.
+- Avalanche: entrante $14.11M, saliente $9.84M, neto +$4.27M (depósitos/retiros, 23:47 UTC-3). Panel agregado (día): +$5.52M.
+- Robinhood Chain: entrante $32.18M, saliente $54.60M, neto -$22.42M (depósitos/retiros, 23:52 UTC-3). Panel agregado (día): -$14.46M.
+- Hyperliquid: sin dato de entrante/saliente — la página individual (/bridges/hyperliquid) no cargó el gráfico de depósitos/retiros (mostró Total volume $0 pese a que la tabla de bridges sí tenía datos). Único dato disponible: panel agregado "Net Flows By Chain" (día): -$7.23M.
+Nota: hay dos fuentes con metodología distinta (panel agregado "Net Flows By Chain" vs. gráfico de depósitos/retiros por cadena); ambas se reportan porque no coinciden exactamente entre sí, pero sí coinciden en signo y orden de magnitud en todos los casos.
+
+1.2 Ranking 24h (panel agregado "Net Flows By Chain", día, lista completa de 15 cadenas mostradas):
+- Top 3 entrada neta: Ethereum +$33.78M, Monad +$13.38M, BNB Chain +$9.42M.
+- Top 3 salida neta: Arbitrum -$18.73M, Plasma -$15.24M, Robinhood Chain -$14.46M.
+
+1.3 Neto 7 días (panel agregado "Net Flows By Chain", toggle Week, lectura 23:36 UTC-3):
+- Robinhood Chain: -$292.63M
+- BNB Chain: +$147.92M
+- Solana: +$71.77M
+- Base: +$92.35M
+(contexto adicional 7d: Ethereum +$517.06M, Avalanche +$72.53M, Hyperliquid -$224.03M)
+
+1.4 Lectura (dato, no recomendación): el capital sale de Robinhood Chain (-$14.46M día / -$292.63M semana) y entra a Ethereum (+$33.78M día / +$517.06M semana) y BNB Chain (+$9.42M día / +$147.92M semana). Nota de método: Hyperliquid es principalmente un exchange, sus retiros netos (-$7.23M día / -$224.03M semana) no implican necesariamente narrativa direccional; Avalanche (+$5.52M día / +$72.53M semana) y Ethereum se anotan como contexto.
+
+1.5 Comparación con ayer: sin dato — no existe en Descargas un archivo flujos-D-*.txt de un día anterior con datos (solo se encontró "FLUJOS-D_v1.txt", que contiene el texto de la consigna de esta tarea, no un reporte de datos). A partir de hoy queda guardado este informe con el formato correcto para poder comparar mañana.
+
+2. D2 — ¿LAS ALTS LE GANAN A BITCOIN? (TradingView, tradingview.com, sin login)
+
+2.1 OTHERS/BTC (tradingview.com/symbols/OTHERSBTC/): último 0.132982 (varió entre 0.132975 y 0.132985 en lecturas sucesivas), variación día -0.12%, variación semana +7.44%, variación mes +7.03%. Hora de lectura: 23:49-23:50 UTC-3.
+
+2.2 BTC.D (tradingview.com/symbols/BTC.D/): último 59.53%, variación día -0.06%, variación semana -1.06%. Hora de lectura: 23:50 UTC-3.
+
+2.3 ETHBTC (tradingview.com/symbols/ETHBTC/): último 0.03149, variación día +0.03%, variación semana +0.32%. Hora de lectura: 23:50 UTC-3.
+
+2.4 Semáforo de alts: VERDE. Cifras que lo determinan: OTHERS/BTC semana +7.44% (sube) y BTC.D semana -1.06% (baja) — ambas condiciones de VERDE se cumplen. Referencia fija del sistema (no verificada): OTHERS/BTC viene cayendo desde enero 2022 y marcó piso en junio 2025.
+
+2.5 BTC spot: $79,084 USD (tradingview.com/symbols/BTCUSD/, hora 23:50 UTC-3, variación día -0.01%). Estado de la alerta: gatillo = cierre diario BTC < $75,500. Con el spot leído, margen = $3,584 por encima del gatillo (4.53%). Nota: es precio spot/intradía, no el cierre diario oficial (el cierre se define al finalizar el día UTC); actualmente sin alerta activa.
+
+3. D3 — META "MEMES APAREADOS": Robinhood Chain (PONS) y StonkFun (STONK)
+
+3.1 PONS (fomo.family, Robinhood Chain, contrato 0x39dbed3a2bd333467115de45665cc57f813c4571), lectura 23:51 UTC-3:
+MC $712.5M. 24H change -8.42%. 24H Vol. $117.3M. Liquidez $7.5M (1.05% del MC). Holders 83K. Top 10 holding 39.03%.
+[ventana verificada 1D]: pestaña 1D del panel "About PONS" mostró -8.42%, igual al 24H change de cabecera (-8.42%).
+Bloque 1D: 17,057 buys / 12,270 sells. Vol. comprador $19.6M / vol. vendedor $19.9M. 2,572 buyers / 2,819 sellers.
+Holders "Friends only" (6 registrados):
+- unipcs: posición $7,808,064.00 (10.9M PONS), PnL +$7,740,353.26 (+11,431.51%), avg. entry $6.1M MC ($0.00618).
+- AvgJoesCrypto: posición $3,016,763.74 (4.2M PONS), PnL +$3,759,082.61 (+13,477.88%), avg. entry $4.5M MC ($0.00456).
+- theveeman: posición $925,686.27 (1.2M PONS), PnL +$787,134.10 (+291.39%), avg. entry $44.2M MC ($0.0443).
+- ether_monk: posición $162.21 (227.65 PONS), PnL +$4.45 (+2.82%), avg. entry $692.9M MC ($0.693).
+- soby0x: posición $24.76 (34.75 PONS), PnL +$21.57 (+676.00%), avg. entry $91.8M MC ($0.0918).
+- frankdegods: posición $3.53 (4.95 PONS), PnL -$0.07 (-1.96%), avg. entry $726.8M MC ($0.727).
+
+3.2 STONK (fomo.family, launchpad StonkFun, Solana, contrato 6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx), lectura 23:51-23:53 UTC-3 (MC fluctuó entre $154.3M y $157.7M durante la lectura; se usa $156.7M como referencia inicial):
+MC ~$156.7M. 24H change +14.01%. 24H Vol. $71.4M. Liquidez $2.9M (~1.85% del MC). Holders 33K. Top 10 holding 18.10%.
+[ventana verificada 1D]: pestaña 1D del panel "About STONK" mostró +14.01%, igual al 24H change de cabecera (+14.01%).
+Bloque 1D: 13,413 buys / 8,142 sells. Vol. comprador $13.7M / vol. vendedor $13.3M. 4,894 buyers / 3,646 sellers.
+Holders "Friends only" (8 registrados):
+- theveeman: posición ~$3,220,000-3,270,000 (18M STONK, varió durante lectura), PnL +~$3.04-3.09M (~+1,650%), avg. entry $8.5M MC ($0.00978).
+- frankdegods: posición ~$800,000-816,000 (4.5M STONK), PnL +~$357,000-373,000 (~+83-84%), avg. entry $85.5M MC ($0.0984).
+- rasmr: posición $314,659.75 (1.7M STONK), PnL +$114,734.08 (+57.39%), avg. entry $99.7M MC ($0.115).
+- KmanuS88: posición $1,853.18 (10.2K STONK), PnL +$849.91 (+84.71%), avg. entry $85M MC ($0.0977).
+- Rowdy: posición $132.30 (733.07 STONK), PnL +$33.67 (+34.14%), avg. entry $117M MC ($0.135).
+- PoorGoat_: posición $18.73 (103.76 STONK), PnL +$17.68 (+1,691.56%), avg. entry $8.7M MC ($0.0101).
+- stackiechan: posición $3.15 (17.47 STONK), PnL +$1.45 (+84.67%), avg. entry $85M MC ($0.0977).
+- unipcs: posición $2.25 (12.45 STONK), PnL +$0.55 (+32.48%), avg. entry $118.5M MC ($0.136).
+
+3.3 Trending (Tokens → Trending, barra lateral de fomo): sin dato. La lista apareció vacía en el primer intento; se esperó 8 segundos y se alternó Bonding → Trending dos veces adicionales (3 intentos en total) sin que cargara contenido. Por protocolo se registra como sin dato.
+
+3.4 Composición Robinhood/Solana/BNB/Base del Trending: sin dato (depende de 3.3).
+
+3.5 Lectura (dato): no se puede indicar la composición del Trending top 10 (sin dato en 3.3). Con lo disponible de las fichas individuales: PONS (Robinhood) cae -8.42% en 24h con más vendedores que compradores en cantidad de traders (2,819 vs 2,572) y volumen vendedor levemente mayor ($19.9M vs $19.6M), aunque con más operaciones de compra que de venta (17,057 buys vs 12,270 sells). STONK (Solana) sube +14.01% en 24h con más compradores (4,894 vs 3,646), más buys (13,413 vs 8,142) y volumen comprador levemente mayor ($13.7M vs $13.3M). Es decir, la infraestructura de la meta muestra a PONS con presión algo vendedora hoy y a STONK con presión compradora hoy.
+
+4. D4 — CRUCE
+
+4.1 Cadena con mayor entrada neta 24h (D1: Ethereum, panel agregado +$33.78M) vs. cadena que domina el Trending (D3): sin dato — no se pudo determinar por Trending vacío (3.3). No se puede afirmar coincidencia.
+
+4.2 Semáforo de alts (D2: VERDE) vs. tono de la meta (D3: mixto, PONS vendedor / STONK comprador): no van claramente en el mismo sentido — uno de los dos tokens de infraestructura de la meta (PONS) muestra presión vendedora hoy pese al semáforo verde general de altcoins.
+
+4.3 Contexto fijo del sistema (no verificado): José mide el resultado final en Bitcoin — todo lo que gane en memes se convierte en BTC al retirar capital. Precio BTC de D2(e) como unidad de cuenta del día: $79,084 (23:50 UTC-3).
+
+5. NOTAS METODOLÓGICAS
+
+- DefiLlama: se usó defillama.com/bridges con el toggle "Chain" y el panel "Net Flows By Chain" (toggles Day/Week) para el ranking y los netos agregados; adicionalmente se visitaron las páginas individuales /bridges/ethereum, /bridges/bsc, /bridges/solana, /bridges/base, /bridges/avalanche y /bridges/robinhood-chain, usando el gráfico "Bridge Volume" en modo diario (D) con zoom sobre el tramo reciente y hover sobre la barra del último día completo (fecha de datos: 07 Sep 2026) para leer Deposits/Withdrawals.
+- Hyperliquid: /bridges/hyperliquid no cargó el gráfico de depósitos/retiros (Total volume mostró $0 pese a que la tabla de bridges individuales sí tenía datos); se usó únicamente el dato del panel agregado.
+- TradingView: se accedió sin login a /symbols/OTHERSBTC/, /symbols/BTC.D/, /symbols/ETHBTC/ y /symbols/BTCUSD/; los datos de variación semanal/mensual se leyeron del bloque "Performance" (presente en el DOM aunque no siempre visible en pantalla sin scroll).
+- fomo.family: protocolo de ficha aplicado en PONS y STONK, ambos con ventana 1D verificada contra el 24H change de cabecera antes de leer el bloque de compras/ventas. La lista Tokens → Trending no cargó tras 3 intentos (espera 8s + 2 alternancias Bonding/Trending adicionales) y se registró sin dato.
+- Fichas leídas con [ventana verificada 1D]: 2 (PONS y STONK).
+- Escritura del informe: en la corrida anterior no se pudo escribir el archivo porque la carpeta Descargas no estaba autorizada para esta sesión. José otorgó el acceso después y este archivo se escribió en esta segunda corrida (ver nombre, hora y tamaño abajo). Se revisó Descargas en busca de un flujos-D de un día anterior: solo existe "FLUJOS-D_v1.txt", que es el texto de la consigna, no un reporte con datos — por eso 1.5 quedó sin dato.

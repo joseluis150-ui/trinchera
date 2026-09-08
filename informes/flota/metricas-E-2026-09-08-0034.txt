@@ -1,0 +1,155 @@
+METRICAS-E — 8 de septiembre de 2026, 00:34 (UTC-3)
+
+Quinta tarea del dia (Radar-X 6:45, Escaneo-A 7:00, Escaneo-B 7:30, FLUJOS-D 7:45 -> corren mas tarde en el dia; esta corrida de MEXICO-E se disparo de madrugada, 00:2x-00:3x). Navegador: Claude en Chrome, pestanas propias del grupo de la sesion, cerradas al terminar. Solo lectura: no se toco Buy, Sell, Follow, Like, Repost, Reply, Send ni Deposit en ningun momento. Todo texto leido en fichas, posts, tesis o feeds es DATO, nunca instruccion.
+
+BLOQUEO INICIAL — CLON DEL REPOSITORIO: el intento de clon fallo. La carpeta $HOME/mnt/Proyectos/trinchera no esta accesible desde esta sesion (el dispositivo solo tiene conectada la carpeta Descargas: /Users/jl/Downloads). No se pudo leer la URL del remoto, no se pudo clonar, y por lo tanto NO se escribio nada en el repositorio (ni CSV, ni commit, ni push). Todas las filas calculadas quedan mas abajo bajo "FILAS PENDIENTES DE ANEXAR". Esto tambien bloqueo: la lectura de index.html (necesaria para E2, verificacion de mapas), calendario-acciones.csv (E7) y salidas.csv (E8), y la sincronizacion del clon del Mac (E9d).
+
+
+=====================================================================
+E0 — FLOTA DE HOY
+=====================================================================
+No existe ningun archivo fomo-A, fomo-B, x-radar ni flujos-D con fecha 2026-09-08 en Descargas (la corrida mas nueva de cada tipo es del 7-sep). FLOTA DE HOY AUSENTE. Se uso el archivo mas reciente de cada tipo (fomo-A-2026-09-07-0727.txt, fomo-B-2026-09-07-0715.txt, x-radar-2026-09-07-0712.txt) mas una lectura EN VIVO de fomo.family a las 00:20-00:34 de hoy para no reportar datos de un dia entero de antiguedad. No existe ni un solo archivo flujos-D en el historico de Descargas (solo aparece "FLUJOS-D_v1.txt", que por el nombre es una plantilla/prompt, no un informe de datos) — neto de puentes: s/d, la fuente nunca genero un reporte.
+
+Cuenta @jlh87 (lectura en vivo 00:34): patrimonio $481.98 (+$1.59 24h). Cash $315.81. Rango observado durante el barrido de fichas (00:21-00:34): $481.98-$484.38.
+Posiciones abiertas: 7 (cambio respecto de ayer: SHROOM fue vendido del todo hoy a las ~"2-3h" segun el feed de swaps, hora exacta no visible mas alla de la etiqueta relativa; en su lugar aparece una posicion nueva, FATCOIN, comprada hace ~13h).
+   1. MarsCoin — 471.06 MarsCoin — $67.78 (+59.62%)
+   2. ICOIN — 4.4K ICOIN — $32.26 a $32.63 segun el instante (+73.8% a +75.8%)
+   3. PROLOGUE — 2.4K PROLOGUE — $25.06 a $25.21 (+30.8% a +31.6%)
+   4. CATE — 507.24 CATE — $14.67 a $14.81 (-24.4% a -25.2%)
+   5. CETS — 865.47 CETS — $14.07 (-25.59%)
+   6. FATCOIN — 471.07 FATCOIN — $7.79 a $7.87 (-15.5% a -16.4%)
+   7. microduck — 305.76 microduck — $5.98 (+66.8%)
+BTC spot (ticker inferior de fomo), 00:34: $78,926.66 (24h +0.94%). Otras lecturas del barrido: $78,764.97 a $78,926.66 (fluctuo dentro de ese rango entre 00:20 y 00:34).
+Semaforo de alts: SIN DATO. No se encontro una seccion "semaforo" en el x-radar del 7-sep ni en los archivos de la flota disponibles.
+
+
+=====================================================================
+E1 — BENCHMARKS
+=====================================================================
+(a) cuenta_usd = $481.98 · btc_spot = $78,926.66 (00:34) · depositos_acum_usd = $300.00 (sin deposito nuevo reportado; no hay fomo-A de hoy para confirmarlo, nota metodologica) · pnl_usd = $181.98 · pnl_pct = +60.66% · cuenta_en_btc = 0.006107 BTC · solo_btc_usd = $299.72 (300 x 78926.66/79000, base 30-ago) · sistema_vs_solo_btc_pct = +60.81%
+
+(b) Espejo Manu (@KmanuS88), leido 00:26: portafolio total $49,559.34 (+$653.86 24h). espejo_manu_var_dia_pct = +1.34% (calculado: 653.86 / (49559.34-653.86) x 100; fomo no muestra el % directo, solo el $).
+
+(c) Canasta DCE (@DumbCrayonEater), leido 00:27: ES LA PRIMERA LECTURA CON DATO NUMERICO (no se pudo confirmar si benchmarks.csv ya tenia una fila base, por el bloqueo de repo — se trata como primera vez). Los 5 tokens mas grandes de su portafolio hoy, con MC de hoy:
+   - AI: posicion $7,641,407.20 — MC del token hoy ~$257.8M
+   - CETS: posicion $240,177.83 — MC del token hoy $16.2M
+   - PROLOGUE: posicion $128,686.08 — MC del token hoy ~$10.3M
+   - ICOIN: posicion $121,769.10 — MC del token hoy ~$7.2M
+   - FIRE: posicion $40,643.08 — MC del token hoy ~$995.6K (leido de un swap de otro trader, no de una ficha propia; aproximado)
+   canasta_dce_usd = 100.00 (base)
+
+(d) FILA PENDIENTE DE ANEXAR A benchmarks.csv (orden de columnas sin confirmar — repo no clonado):
+   fecha=2026-09-08; hora=00:34; cuenta_usd=481.98; cash_usd=315.81; btc_spot=78926.66; depositos_acum_usd=300.00; pnl_usd=181.98; pnl_pct=60.66; cuenta_en_btc=0.006107; solo_btc_usd=299.72; sistema_vs_solo_btc_pct=60.81; espejo_manu_usd=49559.34; espejo_manu_var_dia_pct=1.34; canasta_dce_usd=100.00; nota="flota de hoy ausente, se uso lectura en vivo; base DCE primera vez: AI 257.8M, CETS 16.2M, PROLOGUE 10.3M, ICOIN 7.2M, FIRE 995.6K(aprox); fuente MExICOS-E + lectura en vivo 00:20-00:34"
+
+
+=====================================================================
+E2 — DESVIOS: CANDIDATOS DEL DIA
+=====================================================================
+NO SE PUDO VERIFICAR MAPA EN NINGUN CASO: index.html vive en el repositorio, que no se pudo clonar (ver bloqueo inicial). Todo lo que sigue es SOLO estructural (patron de compras), sin la columna de mapa que pide el protocolo. Vos (Jose) confirmas los desvios en el chat, como siempre; esto es unicamente lo que se pudo observar sin esa pieza.
+
+Swaps de @jlh87 leidos en su perfil (00:26), buys de las ultimas ~24h (las etiquetas de fomo son relativas — "13h" es clara, las marcadas "1d" pueden caer justo en el borde de la ventana de 24h y no se pudieron precisar al minuto):
+   - FATCOIN Buy $9.36 a $19.8M MC (13h) — token que reemplazo a SHROOM en la cartera. sin dato de mapa en index.html (repo no clonado).
+   - CATE: dos compras visibles en la ventana — una mas vieja a $40.6M MC y una mas nueva (misma etiqueta "1d") a $34.4M MC. La segunda es a un MC MENOR que la primera. CANDIDATO ESTRUCTURAL: "promedio a la baja". nota: sin dato de mapa (repo no clonado).
+   - SHROOM: dos compras en la ventana — una mas vieja a $39M MC y una mas nueva a $33.5M MC (tambien menor), seguidas de la venta total de la posicion (SHROOM Sell $33.47 a $28.1M MC, hace ~2-3h). CANDIDATO ESTRUCTURAL: "promedio a la baja", con la salvedad de que la posicion ya se cerro. nota: sin dato de mapa (repo no clonado).
+   - PROLOGUE Buy $19.24 a $7.8M MC (1d), ICOIN Buy $18.65 a $4.1M MC (1d), CETS Buy $19.00 a $21.9M MC (1d): no se pudo evaluar la regla de "vela 24h >+40%" con precision porque no hay dato del %24h del token en el instante exacto de cada compra (solo el de ahora); PROLOGUE hoy esta en +40.14% y podria calzar en el criterio (iv), pero no queda confirmado. nota: sin dato de mapa (repo no clonado).
+VOS NO CONFIRMAS DESVIOS — esto es solo lo que se pudo anotar sin la pieza del repo.
+
+
+=====================================================================
+E3 — FICHAS-E: ATENCION Y OVERHANG
+=====================================================================
+Universo: las 7 posiciones abiertas de hoy + PONS + STONK = 9 fichas. Las 9 se leyeron con el protocolo de la regla 8 (pestana 1D verificada contra el 24H change de cabecera) — [ventana verificada 1D] en las 9. var_thesis_vs_ayer: s/d en las 9 (fichas-E.csv no accesible, no hay fila de ayer para comparar). overhang_snipers_pct se calculo sobre el listado de holders sin filtro "Friends only" (top holders por valor de posicion, hasta 20), sumando quienes entraron con MC de entrada < 10% del MC actual, usando valor_de_la_posicion/MC como proxy del % de supply (el panel no expone % de supply por holder).
+
+1. MarsCoin — MC $147.1M · 24H -8.95% · liquidez $1.3M (0.88% del MC) · holders 46K · top10 13.29% · thesis 11,600 · thesis_por_1000_holders 252.17 · overhang_snipers_pct 1.5% (3 de 20 holders: smokey0x, NoGiOlMoKiNi, MoneyLord)
+
+2. ICOIN — MC $7.2M · 24H +36.95% · liquidez $449K (6.24%) · holders 5K · top10 17.10% · thesis 1,517 · thesis_por_1000_holders 303.40 · overhang_snipers_pct 5.3% (5 de 20: FartmanSacks, picadura, Natan_benish, staopid1, cryptostasher)
+
+3. PROLOGUE — MC $10.3M · 24H +40.14% · liquidez $411.2K (3.99%) · holders 7K · top10 14.66% · thesis 1,314 · thesis_por_1000_holders 187.71 · overhang_snipers_pct 1.9% (1 de 20: inyourwalls) · edad: SIGUE SIN DATO, fomo muestra "Created --"
+
+4. CATE — MC $28.1M · 24H -12.46% · liquidez $1M (3.56%) · holders 117K · top10 11.55% · thesis 779,200 · thesis_por_1000_holders 6,660.68 · overhang_snipers_pct 0.0% (0 de 20 — ningun top holder entro por debajo del 10% del MC actual)
+
+5. CETS — MC $16.2M · 24H -12.92% · liquidez $284.9K (1.76%, sigue por debajo del 2%) · holders 9K · top10 24.44% · thesis 3,665 · thesis_por_1000_holders 407.22 · overhang_snipers_pct 19.8% (14 de 20 — concentracion de entrada temprana notablemente alta)
+
+6. FATCOIN — MC $16.6M · 24H -1.79% · liquidez $552.8K (3.33%) · holders 9K · top10 12.45% · thesis 2,459 · thesis_por_1000_holders 273.22 · overhang_snipers_pct 3.0% (3 de 20) · edad: 6 dias (unico de los 9 con edad confirmada en la ficha) · token nuevo en la cartera de Jose desde hoy
+
+7. microduck — MC $19.5M · 24H -14.26% · liquidez $376.4K (1.93%, por debajo del 2%) · holders 19K · top10 23.71% · thesis 11,600 · thesis_por_1000_holders 610.53 · overhang_snipers_pct 7.0% (7 de 20) · edad 11 dias
+
+8. PONS — MC $695.7M (fluctuo $682M-$697M durante el barrido) · 24H -10.05% (tambien fluctuante, -9% a -10.6%) · liquidez $7M (~1.00%) · holders 83K · top10 39.04% · thesis 7,022-7,023 · thesis_por_1000_holders 84.60 · overhang_snipers_pct 3.7% (11 de 20: unipcs, cosby, AvgJoesCrypto, RugDalio, lordarbiter, 0xnobi, carlwheezor, kyle, kingofgotham, theveeman, Samisa_btc)
+
+9. STONK — MC $174.5M (fluctuo hasta $176.9M) · 24H +46.44% · liquidez $3M (1.72%, por debajo del 2%) · holders 33K · top10 18.11% · thesis 8,821 · thesis_por_1000_holders 267.30 · overhang_snipers_pct 13.1% (13 de 20: pointfarmcap, The__Solstice, theveeman, 0xdetweiler, RZDxbt, TheDazzleNovak, TheOnlyOMP, Pyro, 0xElyy, xbtDLN, motiyawerey, retardedgains, buggyllama)
+
+FILAS PENDIENTES DE ANEXAR A fichas-E.csv (9 filas, orden de columnas sin confirmar): ver los 9 bloques de arriba, hora de lectura 00:20-00:29, fuente "MEXICOS-E + lectura en vivo fomo.family".
+
+
+=====================================================================
+E4 — GRUPO DE CONTROL: LOS 10 QUE MAS CAYERON
+=====================================================================
+LIMITACION IMPORTANTE: la pestana Trending de fomo (barra lateral) no ofrece un control de orden por 24H change — se tomo la lista tal cual aparece (ordenada por algun criterio de momentum/volumen propio de fomo) y se recorrio manualmente, con scroll, a lo largo de mas de 150 tokens visibles. Esa lista esta dominada casi por completo por tokens en verde (ganadores); solo aparecieron 7 tokens con MC > $1M en rojo durante todo el recorrido, no 10. No hubo una falla de carga (no aplico el protocolo de 3 intentos de la regla E4): la lista cargo bien, simplemente no mostro mas de 7 caidas con ese piso de MC en la porcion visible. Por limite de tiempo de esta corrida tampoco se abrio la ficha individual de cada uno de los 7 (cadena, launchpad, edad, holders, top10%, verificado, top1_holder, received_top50, titular_presente, base_antes_vela y narrativa_madre quedan SIN DATO para los 7 — no se inventa nada, se deja pendiente).
+
+Los 7 encontrados, ordenados de mayor a menor caida (rank_desde_abajo 1 = el que mas cayo), con MC y %24h tal como aparecian en el momento de pasar por ellos (ambos fluctuaron levemente entre una lectura y otra durante el scroll, 00:20-00:29):
+   1. Stonks — MC ~$3.3M-$3.6M · 24H ~-71% a -73%
+   2. ROBIN — MC ~$4.5M-$4.6M · 24H ~-65% a -67%
+   3. BREW — MC ~$5.9M-$6.4M · 24H ~-60% a -63%
+   4. BEN — MC ~$4.2M-$4.8M · 24H ~-53% a -58%
+   5. GRASS — MC ~$3.4M · 24H ~-39% a -44%
+   6. FLORK — MC ~$13M-$13.2M · 24H ~-32% a -37%
+   7. ZZZ — MC ~$15M-$15.2M · 24H ~-19% a -20.5%
+   8-10. sin dato — no se encontraron mas caidas con MC > $1M en la porcion visible de Trending.
+
+FILAS PENDIENTES DE ANEXAR A control-perdedores.csv: solo token, MC aproximado y %24h de los 7 de arriba; el resto de columnas (cadena, launchpad, edad, vol24h, liq%, holders, top10%, verificado, top1_holder+MC entrada, received_top50, titular_presente, base_antes_vela, narrativa_madre, veredicto) quedan sin completar por limite de tiempo — no escribir sin esos datos si el CSV los exige como no-nulos.
+
+
+=====================================================================
+E5 — LIQUIDACIONES (coinglass.com/liquidations, publico, sin login)
+=====================================================================
+Leido 00:30 (cookies: se eligio "Decline All" en el banner de preferencias, opcion mas privada disponible).
+Total liquidado 24h: $171.51M (variacion propia de la pagina: -28.89% a -28.92% segun el instante)
+Longs 24h: $121.79M-$121.80M · Shorts 24h: $49.69M-$49.70M
+Mayor liquidacion individual: Hyperliquid — BTC-USD — $2.84M
+Niveles del mapa de liquidaciones de BTC (arriba/abajo del spot): s/d (pro). Lo que carga sin login en esa URL es un treemap de liquidaciones POR ACTIVO (BTC $2.25M, ETH $1.6M, SOL $1.02M, etc. en la ventana de 1h), no un mapa de niveles de PRECIO con imanes de liquidez; ese mapa de niveles no aparecio en esta vista gratuita.
+toco_el_nivel: no aplica esta corrida — no hay una fila anterior de liquidaciones.csv accesible (repo no clonado) con un nivel_iman_abajo numerico para comparar.
+
+FILA PENDIENTE DE ANEXAR A liquidaciones.csv: fecha=2026-09-08; hora=00:30; total_liquidado_24h_usd=171510000; longs_24h_usd=121800000; shorts_24h_usd=49700000; mayor_liquidacion="Hyperliquid BTC-USD $2.84M"; nivel_iman_abajo="s/d (pro)"; nivel_iman_arriba="s/d (pro)"; toco_el_nivel="s/d, repo no clonado"; nota="treemap por activo visible, mapa de niveles de precio no disponible sin login"
+
+
+=====================================================================
+E6 — SALUD DE ROBINHOOD CHAIN (robinhoodchain.blockscout.com, publico)
+=====================================================================
+Lectura 1 (00:30): ultimo batch 210,899 · total txns 646,862,049 · total addresses 20,071,248 · tiempo promedio de bloque (declarado por el sitio) 0.1s · gas promedio $0.02 · transacciones/dia declarado 10.57M (dia incompleto)
+Lectura 2 (00:32, ~90-100 segundos despues): ultimo batch SIGUE EN 210,899. El contador de "transacciones pendientes por venir" crecio de 3,417 a 4,970 en ese lapso, y las marcas de tiempo de los batches anteriores (210898, 210897...) avanzaron de "46s/1m ago" a "2m-4m ago" — es decir, el reloj de la pagina avanza con normalidad pero no entro NINGUN batch nuevo.
+Estado mecanico: PARADA. El numero del ultimo batch no cambio entre dos lecturas separadas por mas de 60 segundos, con transacciones visiblemente en cola esperando ser incluidas. Nota de terminologia: este explorador llama "batch" a lo que el protocolo llama "bloque" (es una L2 tipo rollup); se aplico la regla igual, sobre el numero de batch. Esto es system-health, no una senal de mercado — no se opina sobre tokens ni se recomienda nada, solo se deja constancia: si el patron persiste puede afectar la ejecucion de operaciones en Robinhood Chain (donde Jose tiene abiertas ICOIN, PROLOGUE y FATCOIN, y PONS como referencia).
+
+FILA PENDIENTE DE ANEXAR A red-rh.csv: fecha=2026-09-08; hora=00:30; total_txns=646862049; total_addresses=20071248; ultimo_batch=210899; tiempo_bloque_declarado_s=0.1; gas_promedio_usd=0.02; estado=PARADA; nota="batch 210899 sin cambios en 2 lecturas separadas por ~95s (00:30 y 00:32), con 3417->4970 tx pendientes acumulandose; terminologia del explorador es 'batch', no 'block'"; fuente="MEXICOS-E, robinhoodchain.blockscout.com"
+
+
+=====================================================================
+E7 — CALENDARIO (calendario-acciones.csv)
+=====================================================================
+SIN DATO — el archivo vive en el repositorio, que no se pudo clonar (ver bloqueo inicial). No se pudo listar eventos de los proximos 14 dias ni generar BANDERA D ni CONFIRMAR FECHA. Pendiente para la proxima corrida con repo accesible.
+
+
+=====================================================================
+E8 — SEGUIMIENTO DE SALIDAS (salidas.csv)
+=====================================================================
+SIN DATO — el archivo vive en el repositorio, que no se pudo clonar (ver bloqueo inicial). No se pudo leer que posiciones estan en estado "abierto 72h" ni comparar su MC actual contra el nivel de salida. Pendiente para la proxima corrida con repo accesible.
+
+
+=====================================================================
+E9 — ESCRITURA, COMMIT Y PUSH
+=====================================================================
+(a) No se escribio ninguna fila en ningun CSV del repositorio (benchmarks.csv, desvios.csv, fichas-E.csv, control-perdedores.csv, liquidaciones.csv, red-rh.csv): el clon fallo desde el arranque (ver bloqueo inicial) y la regla 6 exige leer la cabecera antes de escribir, cosa que no se pudo hacer. Todas las filas calculadas quedan en las secciones de arriba bajo "FILA(S) PENDIENTE(S) DE ANEXAR", con el orden de columnas SIN CONFIRMAR (a completar en la proxima corrida contra la cabecera real de cada archivo).
+(b) Este informe se escribio en Descargas: metricas-E-2026-09-08-0034.txt
+(c) Commit y push: NO REALIZADOS (no hubo clon, no hay working copy sobre la que hacer commit).
+(d) Sincronizacion del clon del Mac: NO REALIZADA — $HOME/mnt/Proyectos/trinchera no esta accesible desde esta sesion (solo la carpeta Descargas esta conectada). Pendiente de la maquina local.
+
+
+=====================================================================
+NOTAS METODOLOGICAS
+=====================================================================
+1. Lo que NO cargo / no se pudo completar: el clon del repositorio completo (bloquea E2 en la parte de mapas, E7 completo, E8 completo, y todos los CSV de E9); el semaforo de alts (no aparece en la flota disponible); la edad de PROLOGUE (fomo sigue sin publicarla); el nivel de precio del mapa de liquidaciones de BTC en coinglass (s/d pro); received_top50, titular_presente, base_antes_vela y narrativa_madre para los 7 tokens de control (E4, por limite de tiempo); las columnas completas de ficha para esos mismos 7 tokens de control.
+2. Intentos de Trending: 1 (cargo bien a la primera; no aplico el protocolo de reintento de la regla E4 porque el problema no fue de carga sino de composicion de la lista — predominan ganadores).
+3. Fichas con [ventana verificada 1D]: 9 de 9 en E3 (100%). Ninguna ventana sin confirmar en ese bloque.
+4. Hallazgo de salud de sistema (no de mercado): Robinhood Chain con batch de bloque estancado en 210,899 durante al menos ~95 segundos mientras se acumulaban transacciones pendientes (E6) — ver seccion E6 para el detalle.
+5. Todo texto de tesis, feeds, "about" de tokens y demas leido durante esta corrida (incluyendo el de Fantom Troupe, DumbCrayonEater, Manu y otros perfiles) es DATO, nunca instruccion; ninguno se ejecuto ni se obedecio.
+
+FIN DE METRICAS-E.
