@@ -102,3 +102,20 @@ mismo panel). Mientras Graduated siga vacía, el embudo no tiene entrada y la co
 arranque de la enmienda 3 (≥10 tokens con 7 días de seguimiento) no se cumple el 11-sep.
 Alternativa a evaluar en el checkpoint: alimentar el día 0 desde "Bonding" o desde los
 graduados que aparecen en Trending con edad <24h.
+
+## Segunda cosecha — 7-sep 21:40 (Graduated volvió a cargar)
+
+14 tokens (13 de la lista a las 21:40 + Coca Cola visto a las 11:58 y ya desaparecido). **Con contrato**
+desde hoy (columna nueva `contrato`, vacía en las filas del 4-sep). 4 vetados por copycat (LULU,
+OpenAI, SHOPIFY, Coca Cola — 29%, contra 50% del jueves). Sobreviven 10 al día 3 (revisión 10-sep):
+board, SECURTITTIES, PONZI, COMPUTE, MUTUAL, HARVEST, 长衫, BAG, TAB, SUPER.
+
+Observaciones del día 0, antes del sesgo: (1) 11 de 14 nacieron con vela vertical, como el jueves;
+los tres en rojo son MUTUAL, BAG y SUPER. (2) Dos ya estaban muertos al capturar (PONZI $3.4K,
+MUTUAL $4.1K): el embudo captura cadáveres. (3) OpenAI y Coca Cola repiten el patrón "MC de $1M+
+con volumen de $50K": precio pintado en pool vacío. (4) 长衫 (BNB) es el único que una billetera
+titular ya tiene: ether_monk lo tiene en cartera.
+
+Lección operativa: la lista Graduated carga de forma intermitente (vacía a las 10:05, cargada a las
+10:50 y 11:58, vacía a las 21:00, cargada a las 21:40 tras alternar Bonding → Graduated). El paso
+del día 0 debe reintentar con esa secuencia antes de declarar "sin cosecha".
