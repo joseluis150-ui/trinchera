@@ -1,0 +1,3 @@
+fecha,hora,btc_spot,liq_24h_total_usd,liq_longs_usd,liq_shorts_usd,mayor_liquidacion,nivel_iman_abajo,nivel_iman_arriba,toco_el_nivel,fuente,nota
+2026-09-03,~12:30,~81000,s/d,s/d,s/d,"James Wynn (Hyperliquid); precio de liquidacion $79,536.29 publicado por @lookonchain",79536,s/d,"SI: minimo 4-sep $79,449 (87 dolares debajo del nivel)",@lookonchain via Radar X,n=1: el nivel publico 21h antes actuo como iman
+2026-09-04,09:30-09:45,79449,200000000 (longs; 15 min),200000000,s/d,s/d,s/d,s/d,—,@WatcherGuru via Radar X,nominas BLS: consecuencia sin causa nombrada

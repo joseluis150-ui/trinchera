@@ -1,0 +1,10 @@
+par_meme,accion_o_activo_madre,ticker,evento,fecha,hora_asuncion,estado_fecha,fuente,bandera_D,nota
+ICOIN,Apple,AAPL,evento de producto (iPhone),2026-09-09,14:00,confirmada,Apple / prensa,vender mitad 14:00-16:00 segun mapa 15; si AAPL cae >3% ese dia no se agrega,10:00 PT = 17:00 UTC
+ICOIN,Apple,AAPL,earnings Q4 FY26,2026-10-29,~17:30,estimada (patron historico) — confirmar,historico de Apple (ultimo jueves de octubre),no comprar satelite en la semana previa si la accion cae,MÉTRICAS-E confirma con la web de IR cuando falten 14 dias
+MEME,AMC Entertainment,AMC,earnings Q3 2026,2026-11-04,post-cierre,estimada (patron historico) — confirmar,historico de AMC (primera semana de noviembre),idem,ventana 3-6 nov
+BONER,Hims & Hers,HIMS,earnings Q3 2026,2026-11-02,post-cierre,estimada 2-6 nov (marketchameleon; sin fecha oficial),https://marketchameleon.com/Overview/HIMS/Earnings/Earnings-Dates/,idem,CEO de Hims siguio a @bonercoinlong el 6-sep
+FATCOIN,McDonald's,MCD,earnings Q3 2026,2026-10-28,pre-apertura,estimada (patron historico) — confirmar,historico de MCD (ultima semana de octubre),idem,angulo GLP-1: Eli Lilly (LLY) reporta ~30-oct (estimada)
+AI,Nvidia,NVDA,earnings Q3 FY27,2026-11-18,post-cierre,estimada (patron historico) — confirmar,historico de NVDA (tercera semana de noviembre),idem,ultimo reporte fue fin de agosto
+microduck / SPACEHOOD,SpaceX (tokenizada),SPCX,fin de lockup,2026-09-09,s/d,segun Radar X — verificar,x-radar 7-sep,lockup = oferta nueva: no comprar satelites SPCX la semana del desbloqueo,siguientes: 24-sep; 9-oct; 24-oct (sabado); 8-dic
+todos,macro,CPI EE.UU. (agosto),dato de inflacion,2026-09-11,09:30,estimada — verificar en bls.gov,calendario BLS,evento binario: regimen no sube a verde fuerte con evento binario a <48h,n=2 del test Narrativa vs Macro
+todos,macro,FOMC,decision de tasas,2026-09-17,15:00,confirmar en federalreserve.gov,calendario Fed,idem; tramo 2 del deposito es post-Fed,16-17 sep

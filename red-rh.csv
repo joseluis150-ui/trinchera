@@ -1,0 +1,2 @@
+fecha,hora,txs_total,txs_24h,bloques_total,tiempo_bloque_s,gas_promedio,estado,fuente,nota
+2026-09-05,s/d,s/d,s/d,s/d,s/d,s/d,PARADA (no se podia vender; volumen record),video de Manu 7-sep (dato de terceros; no verificado en Blockscout),explica la correccion RH del fin de semana; primera fila de referencia

@@ -1,0 +1,6 @@
+fecha,hora,cuenta_usd,depositos_acum_usd,pnl_usd,pnl_pct,btc_spot,cuenta_en_btc,solo_btc_usd,sistema_vs_solo_btc_pct,espejo_manu_usd,espejo_manu_var_dia_pct,canasta_dce_usd,fuente,nota
+2026-08-30,16:00,300.00,300,0.00,0.0,79000,0.003797,300.00,0.0,s/d,s/d,s/d,"base: primeros trades 30-ago; BTC en la banda $78-80K al cierre 16:00 UTC (Polymarket/Lines), se toma $79,000 como base","la base de ""solo BTC"" es: los $300 depositados comprados en BTC el 30-ago y no tocados"
+2026-09-04,21:00,505.64,300,205.64,68.5,79656,0.006348,302.49,67.2,47500,-12.8,s/d,dash v55 (cierre 4-sep); Manu leido en la cantera del 4-sep,primer cierre con regimen VERDE
+2026-09-05,08:55,538.45,300,238.45,79.5,s/d,s/d,s/d,s/d,s/d,s/d,s/d,dash v57,maximo historico de la cuenta
+2026-09-07,07:00,494.35,300,194.35,64.8,79397,0.006226,301.51,64.0,50654,s/d,s/d,fomo-A 7-sep 07:27 + x-radar 07:12; Manu = 46268+4386 (valor previo a su dia -8.7%),-$30.84 en la noche
+2026-09-07,21:30,481.85,300,181.85,60.6,79178,0.006086,300.68,60.3,46268,-8.7,s/d,nocturno 7-sep + venta SHROOM $33.47,"MÉTRICAS-E arranca la canasta DCE el 8-sep: $100 repartidos en partes iguales entre las 5 posiciones mas grandes de DCE ese dia, valuadas a diario"
