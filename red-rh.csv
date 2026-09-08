@@ -1,3 +1,4 @@
 fecha,hora,txs_total,txs_24h,bloques_total,tiempo_bloque_s,gas_promedio,estado,fuente,nota
 2026-09-05,s/d,s/d,s/d,s/d,s/d,s/d,PARADA (no se podia vender; volumen record),video de Manu 7-sep (dato de terceros; no verificado en Blockscout),explica la correccion RH del fin de semana; primera fila de referencia
 2026-09-08,00:30,646862049,10570000 (dia incompleto),"57378695 (bloque, 00:55)",0.1 declarado; ~5.5 bloques/s observado,$0.02,NORMAL (corregido),MÉTRICAS-E + verificacion manual 00:55 en /blocks,"MÉTRICAS-E reporto PARADA leyendo el numero de BATCH L1 (210899 sin cambio en 95s): falso positivo. Verificacion manual: 167 bloques nuevos en 30s. Regla corregida en v1.2: leer /blocks, no batches"
+2026-09-08,07:49,649554441,"10.57M (día incompleto)","57631428 (bloque, 07:49:20)",0.1,$0.06,NORMAL,"MÉTRICAS-E + verificación manual /blocks","bloque 57630625 a las 07:48:04 -> 57631428 a las 07:49:20 (803 bloques nuevos en ~75s, muy por encima del umbral de 30/min)"
