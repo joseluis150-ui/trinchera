@@ -1,0 +1,18 @@
+fecha_no,token,motivo_del_no,regla,mc_al_no,mc_max_72h,mc_72h_o_hoy,var_max_pct,var_hoy_pct,sonda_hipotetica_usd,resultado_sonda_usd,veredicto,nota
+2026-09-08,STONK,"mapa 16 condicional: retest asentado ~$140M; overhang 10.9%, vela",R5/asentamiento,$133.8M,$181.5M,$171.5M,35.7,28.2,9.40,2.65,omision chica (sin TP1),sin TP1 ni stop
+2026-09-08,ZCAT,liquidez 0.69%-1.11% del MC,R6 liq <1.5%,$146M,$146M,$89.8M,0.0,-38.5,9.40,-2.35,NO correcto,stop -25%
+2026-09-08,PARE,Unverified; Manu promediando a la baja,R6 Unverified,$12.4M,$12.4M,$9.6M,0.0,-22.6,9.40,-2.12,NO correcto,sin TP1 ni stop
+2026-09-08,PAIR,"Manu sola, sin titular, -31%",score 38,$13.7M,$13.7M,$7.0M,0.0,-48.9,9.40,-2.35,NO correcto,stop -25%
+2026-09-08,TENDIES,observacion: DCE $998 sola; condicion DCE >=$5K + RH positiva,score 62 / condicional,$16.3M,$16.3M,$15.7M,0.0,-3.7,9.40,-0.35,neutro,sin TP1 ni stop
+2026-09-08,MEME,sin banda: cruzo $60-70M en vertical; solo con piso 3 dias sobre $80M,asentamiento,$94.7M,$94.7M,$60.3M,0.0,-36.3,9.40,-2.35,NO correcto,stop -25%
+2026-09-08,FIRE,semilla candidata regla 10: faltaba verificar edad/liq/compra de mercado; 10-sep resulto Unverified,R6 Unverified,$1.1M,$1.1M,$0.708M,0.0,-35.6,9.40,-2.35,NO correcto,stop -25%
+2026-09-08,Sue,ether_monk compro pero token -36% con pump muerto,R3/R5,$3.7M,$3.7M,$2.3M,0.0,-37.8,9.40,-2.35,NO correcto,stop -25%
+2026-09-08,build,"6 horas de vida, +13,000%",R3/R5,$33M,$33M,$1.9M,0.0,-94.2,9.40,-2.35,NO correcto,stop -25%
+2026-09-08,UBIK,"ether_monk agrego; liq 1.97%, RH drenando: 'sonda como maximo, no en RH mientras drene'",R19/red RH,$18.5M,$26.5M,$18.7M,43.2,1.1,9.40,0.1,omision chica (sin TP1),sin TP1 ni stop
+2026-09-08,niulai,lista de espera; liq 1.25%,R6 liq,$87.8M,$87.8M,$76.0M,0.0,-13.4,9.40,-1.26,NO correcto,sin TP1 ni stop
+2026-09-09,DELTA,mapa 17 condicional: unipcs/ether_monk compra >=$5K + 2 lecturas comprador + RH positiva,condicional,$13.1M,$13.1M,$11.3M,0.0,-13.7,9.40,-1.29,NO correcto,sin TP1 ni stop
+2026-09-09,BREW,mapa 17 condicional: sonda solo a <=$7.5M (avg de ether_monk) o segundo titular,asentamiento / mapa,$8.1M,$14.0M,$13.2M,72.8,63.0,9.40,5.78,OMISION real (TP1),TP1 cobrado
+2026-09-09,MOOF,"17 horas, +13,593%, contrato no verificado",R3+R5+R6,$0.28M,$0.28M,$0.086M,0.0,-69.3,9.40,-2.35,NO correcto,stop -25%
+2026-09-09,CACHE,"Unverified, -48%, Manu -51%",R6,$0.792M,s/d,s/d,s/d,s/d,9.40,s/d,pendiente 72h,se cierra en el chat / E8-bis
+2026-09-09,CATE (agrandar),vela +77% en 24h,R5,$44.5M,$65.1M,$61.5M,46.3,38.2,9.40,3.59,omision chica (sin TP1),sin TP1 ni stop
+2026-09-10,UPONLY,"ether_monk 5 compras a la baja, -30%",L7 escalera a la baja,$2.3M,s/d,s/d,s/d,s/d,9.40,s/d,pendiente 72h,se cierra en el chat / E8-bis
